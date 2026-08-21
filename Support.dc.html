@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="assets/icon.png" />
+<title>Support — Mindflow Budget</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #06171e; color: #eef6f8; font-family: Manrope, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #7fd3e8; text-decoration: none; }
+  a:hover { color: #b9ecf8; }
+  input::placeholder, textarea::placeholder { color: rgba(238,246,248,.35); }
+  input:focus, textarea:focus, select:focus { outline: none; border-color: rgba(69,217,192,.65) !important; }
+</style>
+</helmet>
+<div style="min-height: 100vh; background: radial-gradient(90% 50% at 80% -10%, #14586b 0%, rgba(20,88,107,0) 60%), linear-gradient(180deg, #0a3241 0%, #06171e 45%, #051219 100%);">
+  <header style="border-bottom: 1px solid rgba(255,255,255,.07); backdrop-filter: blur(14px);">
+    <nav style="max-width: 940px; margin: 0 auto; padding: 16px 24px; display: flex; align-items: center; gap: 16px;">
+      <a href="Mindflow Budget Site.dc.html" style="display: flex; align-items: center; gap: 12px; color: inherit;">
+        <img src="assets/icon.png" alt="Mindflow Budget" style="width: 34px; height: 34px; border-radius: 10px; display: block;" />
+        <span style="font-family: Nunito, sans-serif; font-weight: 900; font-size: 18px;">Mindflow</span>
+      </a>
+      <div style="flex: 1;"></div>
+      <a href="Mindflow Budget Site.dc.html" style="font-size: 14px; font-weight: 600;">{{ t.back }}</a>
+      <div style="display: flex; gap: 4px; padding: 4px; border-radius: 999px; border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.04);">
+        <button onClick="{{ setFr }}" style="{{ frBtn }}">FR</button>
+        <button onClick="{{ setEn }}" style="{{ enBtn }}">EN</button>
+      </div>
+    </nav>
+  </header>
+
+  <main style="max-width: 940px; margin: 0 auto; padding: clamp(46px, 7vw, 86px) 24px 110px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(32px, 5vw, 64px); align-items: start;">
+    <div>
+      <p style="font-size: 13px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #45d9c0; margin: 0 0 16px;">Support</p>
+      <h1 style="font-family: Nunito, sans-serif; font-weight: 900; font-size: clamp(34px, 4.6vw, 52px); line-height: 1.04; letter-spacing: -1.4px; margin: 0 0 20px; text-wrap: balance;">{{ t.title }}</h1>
+      <p style="font-size: 17.5px; line-height: 1.65; color: rgba(238,246,248,.72); margin: 0 0 30px; max-width: 30em; text-wrap: pretty;">{{ t.intro }}</p>
+      <div style="display: grid; gap: 12px; padding: 22px 24px; border-radius: 22px; background: rgba(255,255,255,.045); border: 1px solid rgba(255,255,255,.08);">
+        <span style="font-size: 12.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(238,246,248,.45);">{{ t.mailLabel }}</span>
+        <a href="mailto:support.mindflowapp@gmail.com" style="font-family: Nunito, sans-serif; font-weight: 800; font-size: 18px; letter-spacing: -.3px; word-break: break-all;">support.mindflowapp@gmail.com</a>
+        <span style="font-size: 14.5px; line-height: 1.55; color: rgba(238,246,248,.6);">{{ t.delay }}</span>
+      </div>
+    </div>
+
+    <form onSubmit="{{ onSubmit }}" style="display: grid; gap: 16px; padding: clamp(24px, 3vw, 34px); border-radius: 26px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); box-shadow: 0 40px 90px -50px rgba(0,0,0,.9);">
+      <label style="display: grid; gap: 8px;">
+        <span style="font-size: 13.5px; font-weight: 600; color: rgba(238,246,248,.7);">{{ t.toLabel }}</span>
+        <input type="text" value="support.mindflowapp@gmail.com" readOnly="{{ true }}" style="width: 100%; padding: 14px 16px; border-radius: 14px; border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.06); color: rgba(238,246,248,.62); font-family: Manrope, sans-serif; font-size: 15px; cursor: default;" />
+      </label>
+      <label style="display: grid; gap: 8px;">
+        <span style="font-size: 13.5px; font-weight: 600; color: rgba(238,246,248,.7);">{{ t.nameLabel }}</span>
+        <input type="text" value="{{ name }}" onChange="{{ onName }}" placeholder="{{ t.namePh }}" style="width: 100%; padding: 14px 16px; border-radius: 14px; border: 1px solid rgba(255,255,255,.14); background: rgba(6,23,30,.55); color: #eef6f8; font-family: Manrope, sans-serif; font-size: 15px;" />
+      </label>
+      <label style="display: grid; gap: 8px;">
+        <span style="font-size: 13.5px; font-weight: 600; color: rgba(238,246,248,.7);">{{ t.subjectLabel }}</span>
+        <input type="text" value="{{ subject }}" onChange="{{ onSubject }}" placeholder="{{ t.subjectPh }}" style="width: 100%; padding: 14px 16px; border-radius: 14px; border: 1px solid rgba(255,255,255,.14); background: rgba(6,23,30,.55); color: #eef6f8; font-family: Manrope, sans-serif; font-size: 15px;" />
+      </label>
+      <label style="display: grid; gap: 8px;">
+        <span style="font-size: 13.5px; font-weight: 600; color: rgba(238,246,248,.7);">{{ t.msgLabel }}</span>
+        <textarea value="{{ message }}" onChange="{{ onMessage }}" rows="6" placeholder="{{ t.msgPh }}" style="width: 100%; padding: 14px 16px; border-radius: 14px; border: 1px solid rgba(255,255,255,.14); background: rgba(6,23,30,.55); color: #eef6f8; font-family: Manrope, sans-serif; font-size: 15px; line-height: 1.55; resize: vertical;"></textarea>
+      </label>
+      <button type="submit" style="margin-top: 4px; padding: 16px 24px; border: none; border-radius: 14px; background: #0a84ff; color: #fff; font-family: Manrope, sans-serif; font-weight: 700; font-size: 16px; cursor: pointer; box-shadow: 0 18px 44px -18px rgba(10,132,255,.95); transition: background .2s ease, transform .2s ease;" style-hover="background: #2a97ff; transform: translateY(-2px);">{{ t.send }}</button>
+      <p style="margin: 0; font-size: 13px; line-height: 1.5; color: rgba(238,246,248,.45);">{{ t.note }}</p>
+    </form>
+  </main>
+
+  <footer style="border-top: 1px solid rgba(255,255,255,.07); padding: 34px 24px 54px;">
+    <div style="max-width: 940px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 18px 30px; align-items: center; justify-content: space-between;">
+      <span style="font-size: 14px; color: rgba(238,246,248,.5);">© 2026 Mindflow Budget</span>
+      <div style="display: flex; flex-wrap: wrap; gap: 24px; font-size: 14px;">
+        <a href="Confidentialite.dc.html">{{ t.legalPrivacy }}</a>
+        <a href="Conditions.dc.html">{{ t.legalTerms }}</a>
+      </div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1100,&quot;height&quot;:820}}">
+class Component extends DCLogic {
+  state = { lang: 'fr', name: '', subject: '', message: '' };
+
+  dict = {
+    fr: {
+      back: '← Retour au site',
+      title: 'Une question ? Écrivez-nous.',
+      intro: 'Bug, suggestion, question sur vos données : nous lisons tous les messages et répondons personnellement.',
+      mailLabel: 'Adresse de support',
+      delay: 'Réponse sous 48 h en général, du lundi au vendredi.',
+      toLabel: 'Destinataire',
+      nameLabel: 'Votre nom', namePh: 'Camille Dupont',
+      subjectLabel: 'Objet', subjectPh: 'Question sur la sauvegarde iCloud',
+      msgLabel: 'Votre message', msgPh: 'Décrivez votre question ou le problème rencontré…',
+      send: 'Ouvrir mon logiciel de messagerie',
+      note: 'Le bouton ouvre votre application e-mail avec le destinataire et votre message déjà remplis. Rien n\u2019est envoyé depuis ce site.',
+      legalPrivacy: 'Politique de confidentialité', legalTerms: 'Conditions d\u2019utilisation',
+      appLine: 'Envoyé depuis le site Mindflow Budget'
+    },
+    en: {
+      back: '← Back to the site',
+      title: 'A question? Write to us.',
+      intro: 'Bug, suggestion, question about your data: we read every message and reply personally.',
+      mailLabel: 'Support address',
+      delay: 'Usually answered within 48 hours, Monday to Friday.',
+      toLabel: 'Recipient',
+      nameLabel: 'Your name', namePh: 'Camille Dupont',
+      subjectLabel: 'Subject', subjectPh: 'Question about iCloud backup',
+      msgLabel: 'Your message', msgPh: 'Describe your question or the issue you ran into…',
+      send: 'Open my email app',
+      note: 'The button opens your email app with the recipient and your message already filled in. Nothing is sent from this website.',
+      legalPrivacy: 'Privacy policy', legalTerms: 'Terms of use',
+      appLine: 'Sent from the Mindflow Budget website'
+    }
+  };
+
+  pill(active) {
+    return {
+      padding: '6px 13px', borderRadius: '999px', border: 'none', cursor: 'pointer',
+      fontFamily: 'Manrope, sans-serif', fontSize: '13px', fontWeight: 700,
+      background: active ? '#eef6f8' : 'transparent',
+      color: active ? '#07222c' : 'rgba(238,246,248,.62)'
+    };
+  }
+
+  submit(e) {
+    e.preventDefault();
+    const t = this.dict[this.state.lang];
+    const s = this.state;
+    const subject = s.subject.trim() || 'Mindflow Budget — Support';
+    const bodyParts = [s.message.trim()];
+    if (s.name.trim()) bodyParts.push('', '— ' + s.name.trim());
+    bodyParts.push('', t.appLine);
+    const url = 'mailto:support.mindflowapp@gmail.com?subject=' + encodeURIComponent(subject) +
+      '&body=' + encodeURIComponent(bodyParts.join('\n'));
+    window.location.href = url;
+  }
+
+  renderVals() {
+    const lang = this.state.lang;
+    return {
+      t: this.dict[lang],
+      name: this.state.name,
+      subject: this.state.subject,
+      message: this.state.message,
+      onName: (e) => this.setState({ name: e.target.value }),
+      onSubject: (e) => this.setState({ subject: e.target.value }),
+      onMessage: (e) => this.setState({ message: e.target.value }),
+      onSubmit: (e) => this.submit(e),
+      frBtn: this.pill(lang === 'fr'),
+      enBtn: this.pill(lang === 'en'),
+      setFr: () => this.setState({ lang: 'fr' }),
+      setEn: () => this.setState({ lang: 'en' })
+    };
+  }
+}
+</script>
+</body>
+</html>

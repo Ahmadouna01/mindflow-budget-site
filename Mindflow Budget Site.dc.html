@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="assets/icon.png">
+<title>Mindflow Budget — Vos finances, enfin simples</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #06171e; color: #eef6f8; font-family: Manrope, system-ui, sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  a { color: #7fd3e8; text-decoration: none; }
+  a:hover { color: #b9ecf8; }
+  summary::-webkit-details-marker { display: none; }
+  @keyframes mfFloat { 0% { transform: translateY(0); } 50% { transform: translateY(-14px); } 100% { transform: translateY(0); } }
+  @keyframes mfPulse { 0% { opacity: .45; } 50% { opacity: .85; } 100% { opacity: .45; } }
+</style>
+</helmet>
+<div style="position: relative; overflow: hidden; background: radial-gradient(120% 70% at 78% -5%, #1b6b7d 0%, rgba(27,107,125,0) 55%), radial-gradient(90% 60% at 10% 15%, #0f4e5f 0%, rgba(15,78,95,0) 60%), linear-gradient(178deg, #0a3644 0%, #072a35 30%, #06171e 62%, #051219 100%);">
+  <div data-progress="" style="position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: linear-gradient(90deg, #2e90fa, #45d9c0); z-index: 60; box-shadow: 0 0 18px rgba(46,144,250,.8);"></div>
+  <header style="position: sticky; top: 0; z-index: 50; backdrop-filter: blur(18px); background: rgba(6,23,30,.62); border-bottom: 1px solid rgba(255,255,255,.07);">
+    <nav style="max-width: 1200px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; gap: 28px;">
+      <a href="#top" style="display: flex; align-items: center; gap: 12px; color: inherit;">
+        <img src="assets/icon.png" alt="Mindflow Budget" style="width: 38px; height: 38px; border-radius: 11px; display: block;">
+        <span style="font-family: Nunito, sans-serif; font-weight: 900; font-size: 19px; letter-spacing: -.2px;">Mindflow</span>
+      </a>
+      <div style="flex: 1;"></div>
+      <div style="display: flex; align-items: center; gap: 26px; font-size: 14.5px; font-weight: 500; color: rgba(238,246,248,.72);">
+        <a href="#features" style="color: inherit;">{{ t.navFeatures }}</a>
+        <a href="#screens" style="color: inherit;">{{ t.navScreens }}</a>
+        <a href="#privacy" style="color: inherit;">{{ t.navPrivacy }}</a>
+        <a href="#faq" style="color: inherit;">FAQ</a>
+        <a href="Support.dc.html" style="color: inherit;">{{ t.navSupport }}</a>
+      </div>
+      <div style="display: flex; align-items: center; gap: 4px; padding: 4px; border-radius: 999px; border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.04);">
+        <button onClick="{{ setFr }}" style="{{ frBtn }}">FR</button>
+        <button onClick="{{ setEn }}" style="{{ enBtn }}">EN</button>
+      </div>
+      <a href="#download" style="padding: 11px 20px; border-radius: 999px; background: #0a84ff; color: #fff; font-weight: 700; font-size: 14.5px; box-shadow: 0 10px 30px -10px rgba(10,132,255,.9);" style-hover="background: #2a97ff;">{{ t.navCta }}</a>
+    </nav>
+  </header>
+  <section id="top" style="max-width: 1200px; margin: 0 auto; padding: clamp(56px, 8vw, 110px) 24px clamp(60px, 8vw, 120px); display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: clamp(32px, 5vw, 72px); align-items: center;">
+    <div>
+      <div data-reveal="" style="opacity: 0; transform: translateY(26px); display: inline-flex; align-items: center; gap: 10px; padding: 7px 14px 7px 8px; border-radius: 999px; border: 1px solid rgba(69,217,192,.32); background: rgba(69,217,192,.09); font-size: 13.5px; font-weight: 600; color: #9ff0e0; margin-bottom: 26px;">
+        <span style="width: 8px; height: 8px; border-radius: 50%; background: #45d9c0; margin-left: 6px; animation: mfPulse 2.4s ease-in-out infinite;"></span>
+        <span>{{ t.heroBadge }}</span>
+      </div>
+      <h1 data-reveal="" data-reveal-delay="80" style="opacity: 0; transform: translateY(26px); font-family: Nunito, sans-serif; font-weight: 900; font-size: clamp(42px, 6vw, 76px); line-height: 1.02; letter-spacing: -1.8px; margin: 0 0 22px; text-wrap: balance;">{{ t.heroTitle }}</h1>
+      <p data-reveal="" data-reveal-delay="160" style="opacity: 0; transform: translateY(26px); font-size: clamp(17px, 1.6vw, 20px); line-height: 1.6; color: rgba(238,246,248,.72); margin: 0 0 34px; max-width: 30em; text-wrap: pretty;">{{ t.heroSub }}</p>
+      <div id="download" data-reveal="" data-reveal-delay="240" style="opacity: 0; transform: translateY(26px); display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 30px; scroll-margin-top: 100px;">
+        <a href="https://apps.apple.com/fr/app/mindflow-budget/id6800087324" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 13px; padding: 15px 26px; border-radius: 16px; background: #fff; color: #08202a; font-weight: 700; font-size: 16px; box-shadow: 0 20px 50px -18px rgba(255,255,255,.45); transition: transform .25s ease;" style-hover="transform: translateY(-3px);">
+          <span style="font-size: 26px; line-height: 1; font-family: Nunito, sans-serif;"></span>
+          <span style="display: flex; flex-direction: column; line-height: 1.25;">
+            <span style="font-size: 11.5px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: rgba(8,32,42,.6);">{{ t.dlOn }}</span>
+            <span>App Store</span>
+          </span>
+        </a>
+        <a href="https://play.google.com/store/search?q=Mindflow%20Budget&amp;c=apps" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 13px; padding: 15px 26px; border-radius: 16px; background: #fff; color: #08202a; font-weight: 700; font-size: 16px; box-shadow: 0 20px 50px -18px rgba(255,255,255,.45); transition: transform .25s ease;" style-hover="transform: translateY(-3px);">
+          <span style="font-size: 21px; line-height: 1; color: #0a84ff;">▶</span>
+          <span style="display: flex; flex-direction: column; line-height: 1.25;">
+            <span style="font-size: 11.5px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: rgba(8,32,42,.6);">{{ t.dlOn }}</span>
+            <span>Google Play</span>
+          </span>
+        </a>
+      </div>
+      <div data-reveal="" data-reveal-delay="320" style="opacity: 0; transform: translateY(26px); display: flex; flex-wrap: wrap; gap: 10px 22px; font-size: 14px; color: rgba(238,246,248,.6);">
+        <span>{{ t.pill1 }}</span>
+        <span style="opacity: .35;">·</span>
+        <span>{{ t.pill2 }}</span>
+        <span style="opacity: .35;">·</span>
+        <span>{{ t.pill3 }}</span>
+      </div>
+    </div>
+    <div style="position: relative; display: flex; justify-content: center;">
+      <div style="position: absolute; inset: -8% -4% 4%; background: radial-gradient(50% 50% at 50% 45%, rgba(46,144,250,.35), rgba(46,144,250,0) 70%); filter: blur(10px);"></div>
+      <div data-hero-phone="" style="position: relative; width: min(330px, 78vw); animation: mfFloat 7s ease-in-out infinite;">
+        <dc-import name="IPhoneFrame" src="assets/ip-home.jpeg" alt="Mindflow Budget sur iPhone" hint-size="100%,700px"></dc-import>
+      </div>
+    </div>
+  </section>
+  <section id="features" style="max-width: 1200px; margin: 0 auto; padding: clamp(40px, 6vw, 90px) 24px;">
+    <p data-reveal="" style="opacity: 0; transform: translateY(20px); font-size: 13px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #45d9c0; margin: 0 0 16px;">{{ t.navFeatures }}</p>
+    <h2 data-reveal="" data-reveal-delay="80" style="opacity: 0; transform: translateY(20px); font-family: Nunito, sans-serif; font-weight: 900; font-size: clamp(32px, 4vw, 52px); line-height: 1.08; letter-spacing: -1.2px; margin: 0 0 clamp(48px, 6vw, 86px); max-width: 22em; text-wrap: balance;">{{ t.featuresTitle }}</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(28px, 5vw, 80px); align-items: center; margin-bottom: clamp(70px, 9vw, 130px);">
+      <div data-reveal="" data-drift="-0.03" style="opacity: 0; transform: translateY(34px);">
+        <h3 style="font-family: Nunito, sans-serif; font-weight: 800; font-size: clamp(26px, 2.6vw, 36px); line-height: 1.14; margin: 0 0 18px; letter-spacing: -.7px;">{{ t.f1Title }}</h3>
+        <p style="font-size: 17px; line-height: 1.65; color: rgba(238,246,248,.7); margin: 0; max-width: 34em; text-wrap: pretty;">{{ t.f1Body }}</p>
+      </div>
+      <div data-reveal="" data-reveal-delay="120" style="opacity: 0; transform: translateY(48px); display: flex; justify-content: center;">
+        <div data-parallax="-0.06" style="width: min(300px, 74vw);">
+          <dc-import name="IPhoneFrame" src="assets/ip-home.jpeg" alt="Écran d'accueil" hint-size="100%,640px"></dc-import>
+        </div>
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(28px, 5vw, 80px); align-items: center; margin-bottom: clamp(70px, 9vw, 130px);">
+      <div data-reveal="" data-reveal-delay="120" style="opacity: 0; transform: translateY(48px); display: flex; justify-content: center; order: 2;">
+        <div data-parallax="-0.06" style="width: min(300px, 74vw);">
+          <dc-import name="IPhoneFrame" src="assets/ip-fixes.jpeg" alt="Charges fixes" hint-size="100%,640px"></dc-import>
+        </div>
+      </div>
+      <div data-reveal="" data-drift="-0.03" style="opacity: 0; transform: translateY(34px); order: 3;">
+        <h3 style="font-family: Nunito, sans-serif; font-weight: 800; font-size: clamp(26px, 2.6vw, 36px); line-height: 1.14; margin: 0 0 18px; letter-spacing: -.7px;">{{ t.f2Title }}</h3>
+        <p style="font-size: 17px; line-height: 1.65; color: rgba(238,246,248,.7); margin: 0; max-width: 34em; text-wrap: pretty;">{{ t.f2Body }}</p>
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(28px, 5vw, 80px); align-items: center; margin-bottom: clamp(70px, 9vw, 130px);">
+      <div data-reveal="" data-drift="-0.03" style="opacity: 0; transform: translateY(34px);">
+        <h3 style="font-family: Nunito, sans-serif; font-weight: 800; font-size: clamp(26px, 2.6vw, 36px); line-height: 1.14; margin: 0 0 18px; letter-spacing: -.7px;">{{ t.f3Title }}</h3>
+        <p style="font-size: 17px; line-height: 1.65; color: rgba(238,246,248,.7); margin: 0; max-width: 34em; text-wrap: pretty;">{{ t.f3Body }}</p>
+      </div>
+      <div data-reveal="" data-reveal-delay="120" style="opacity: 0; transform: translateY(48px); display: flex; justify-content: center;">
+        <div data-parallax="-0.06" style="width: min(300px, 74vw);">
+          <dc-import name="IPhoneFrame" src="assets/ip-epargne.jpeg" alt="Épargne" hint-size="100%,640px"></dc-import>
+        </div>
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(28px, 5vw, 80px); align-items: center;">
+      <div data-reveal="" data-reveal-delay="120" style="opacity: 0; transform: translateY(48px); display: flex; justify-content: center; order: 2;">
+        <div data-parallax="-0.06" style="width: min(300px, 74vw);">
+          <dc-import name="GalaxyFrame" src="assets/ga-revenus.jpeg" alt="Revenus complémentaires" hint-size="100%,640px"></dc-import>
+        </div>
+      </div>
+      <div data-reveal="" data-drift="-0.03" style="opacity: 0; transform: translateY(34px); order: 3;">
+        <h3 style="font-family: Nunito, sans-serif; font-weight: 800; font-size: clamp(26px, 2.6vw, 36px); line-height: 1.14; margin: 0 0 18px; letter-spacing: -.7px;">{{ t.f4Title }}</h3>
+        <p style="font-size: 17px; line-height: 1.65; color: rgba(238,246,248,.7); margin: 0; max-width: 34em; text-wrap: pretty;">{{ t.f4Body }}</p>
+      </div>
+    </div>
+  </section>
+  <section id="screens" style="padding: clamp(60px, 8vw, 110px) 0; border-top: 1px solid rgba(255,255,255,.06); border-bottom: 1px solid rgba(255,255,255,.06); background: linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,0));">
+    <div style="max-width: 1200px; margin: 0 auto clamp(36px, 5vw, 60px); padding: 0 24px; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px;">
+      <div data-reveal="" style="opacity: 0; transform: translateY(20px);">
+        <p style="font-size: 13px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #45d9c0; margin: 0 0 14px;">{{ t.navScreens }}</p>
+        <h2 style="font-family: Nunito, sans-serif; font-weight: 900; font-size: clamp(30px, 3.6vw, 46px); line-height: 1.1; letter-spacing: -1.1px; margin: 0;">{{ t.screensTitle }}</h2>
+      </div>
+      <div data-reveal="" data-reveal-delay="100" style="opacity: 0; transform: translateY(20px); display: flex; gap: 6px; padding: 5px; border-radius: 999px; border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.04);">
+        <button onClick="{{ setIos }}" style="{{ iosBtn }}">Apple</button>
+        <button onClick="{{ setAnd }}" style="{{ andBtn }}">Android</button>
+      </div>
+    </div>
+    <div style="overflow: hidden; padding: 10px 0 24px;">
+      <sc-if value="{{ isIos }}" hint-placeholder-val="{{ true }}">
+        <div data-gallery-track="" style="display: flex; gap: 30px; padding: 0 24px; will-change: transform;">
+          <div style="flex: none; width: clamp(190px, 22vw, 262px);"><dc-import name="IPhoneFrame" src="assets/ip-pin.jpeg" alt="Code PIN" hint-size="100%,560px"></dc-import></div>
+          <div style="flex: none; width: clamp(190px, 22vw, 262px);"><dc-import name="IPhoneFrame" src="assets/ip-home.jpeg" alt="Accueil" hint-size="100%,560px"></dc-import></div>
+          <div style="flex: none; width: clamp(190px, 22vw, 262px);"><dc-import name="IPhoneFrame" src="assets/ip-revenus.jpeg" alt="Revenus" hint-size="100%,560px"></dc-import></div>
+          <div style="flex: none; width: clamp(190px, 22vw, 262px);"><dc-import name="IPhoneFrame" src="assets/ip-fixes.jpeg" alt="Charges fixes" hint-size="100%,560px"></dc-import></div>
+          <div style="flex: none; width: clamp(190px, 22vw, 262px);"><dc-import name="IPhoneFrame" src="assets/ip-epargne.jpeg" alt="Épargne" hint-size="100%,560px"></dc-import></div>
+          <dc-import name="IPhoneFrame" src="assets/ip-profil.jpeg" alt="Profil" hint-size="100%,560px"></dc-import><div style="flex: none; width: clamp(190px, 22vw, 262px);"><dc-import name="IPhoneFrame" src="assets/ip-reglages.jpeg" alt="Réglages" hint-size="100%,560px"></dc-import></div>
+          <div style="flex: none; width: clamp(190px, 22vw, 262px);"></div>
+        </div>
+      </sc-if>
+      <sc-if value="{{ isAndroid }}" hint-placeholder-val="{{ false }}">
+        <div data-gallery-track="" style="display: flex; gap: 30px; padding: 0 24px; will-change: transform;">
+          <div style="flex: none; width: clamp(190px, 22vw, 262px);"><dc-import name="GalaxyFrame" src="assets/ga-pin.jpeg" alt="Code PIN" hint-size="100%,560px"></dc-import></div>
+          <div style="flex: none; width: clamp(190px, 22vw, 262px);"><dc-import name="GalaxyFrame" src="assets/ga-home.jpeg" alt="Accueil" hint-size="100%,560px"></dc-import></div>
+          <div style="flex: none; width: clamp(190px, 22vw, 262px);"><dc-import name="GalaxyFrame" src="assets/ga-revenus.jpeg" alt="Revenus" hint-size="100%,560px"></dc-import></div>
+          <div style="flex: none; width: clamp(190px, 22vw, 262px);"><dc-import name="GalaxyFrame" src="assets/ga-fixes.jpeg" alt="Charges fixes" hint-size="100%,560px"></dc-import></div>
+          <div style="flex: none; width: clamp(190px, 22vw, 262px);"><dc-import name="GalaxyFrame" src="assets/ga-epargne.jpeg" alt="Épargne" hint-size="100%,560px"></dc-import></div>
+          <div style="flex: none; width: clamp(190px, 22vw, 262px);"><dc-import name="GalaxyFrame" src="assets/ga-reglages.jpeg" alt="Réglages" hint-size="100%,560px"></dc-import></div>
+          <div style="flex: none; width: clamp(190px, 22vw, 262px);"><dc-import name="GalaxyFrame" src="assets/ga-backup.jpeg" alt="Sauvegarde" hint-size="100%,560px"></dc-import></div>
+        </div>
+      </sc-if>
+    </div>
+    <p style="max-width: 1200px; margin: 18px auto 0; padding: 0 24px; font-size: 13.5px; color: rgba(238,246,248,.45);">{{ t.screensHint }}</p>
+  </section>
+  <section id="privacy" style="max-width: 1200px; margin: 0 auto; padding: clamp(70px, 9vw, 130px) 24px;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(32px, 5vw, 72px); align-items: center;">
+      <div data-reveal="" style="opacity: 0; transform: translateY(30px);">
+        <p style="font-size: 13px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #45d9c0; margin: 0 0 16px;">{{ t.navPrivacy }}</p>
+        <h2 style="font-family: Nunito, sans-serif; font-weight: 900; font-size: clamp(30px, 3.6vw, 48px); line-height: 1.08; letter-spacing: -1.1px; margin: 0 0 22px; text-wrap: balance;">{{ t.privacyTitle }}</h2>
+        <p style="font-size: 17px; line-height: 1.65; color: rgba(238,246,248,.7); margin: 0 0 34px; max-width: 34em; text-wrap: pretty;">{{ t.privacyBody }}</p>
+        <div style="display: grid; gap: 14px;">
+          <div style="display: flex; gap: 14px; align-items: flex-start; padding: 18px 20px; border-radius: 18px; background: rgba(255,255,255,.045); border: 1px solid rgba(255,255,255,.07);">
+            <span style="width: 9px; height: 9px; border-radius: 50%; background: #45d9c0; margin-top: 8px; flex: none;"></span>
+            <span style="font-size: 16px; line-height: 1.5; color: rgba(238,246,248,.85);">{{ t.priv1 }}</span>
+          </div>
+          <div style="display: flex; gap: 14px; align-items: flex-start; padding: 18px 20px; border-radius: 18px; background: rgba(255,255,255,.045); border: 1px solid rgba(255,255,255,.07);">
+            <span style="width: 9px; height: 9px; border-radius: 50%; background: #45d9c0; margin-top: 8px; flex: none;"></span>
+            <span style="font-size: 16px; line-height: 1.5; color: rgba(238,246,248,.85);">{{ t.priv2 }}</span>
+          </div>
+          <div style="display: flex; gap: 14px; align-items: flex-start; padding: 18px 20px; border-radius: 18px; background: rgba(255,255,255,.045); border: 1px solid rgba(255,255,255,.07);">
+            <span style="width: 9px; height: 9px; border-radius: 50%; background: #45d9c0; margin-top: 8px; flex: none;"></span>
+            <span style="font-size: 16px; line-height: 1.5; color: rgba(238,246,248,.85);">{{ t.priv3 }}</span>
+          </div>
+        </div>
+      </div>
+      <div data-reveal="" data-reveal-delay="120" style="opacity: 0; transform: translateY(48px); display: flex; justify-content: center;">
+        <div data-parallax="-0.05" style="width: min(300px, 74vw);">
+          <dc-import name="GalaxyFrame" src="assets/ga-backup.jpeg" alt="Sauvegarde iCloud et Google Drive" hint-size="100%,640px"></dc-import>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="max-width: 1200px; margin: 0 auto; padding: 0 24px clamp(70px, 9vw, 120px);">
+    <h2 data-reveal="" style="opacity: 0; transform: translateY(20px); font-family: Nunito, sans-serif; font-weight: 900; font-size: clamp(28px, 3.2vw, 42px); line-height: 1.1; letter-spacing: -1px; margin: 0 0 clamp(32px, 4vw, 54px); max-width: 24em;">{{ t.voicesTitle }}</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px;">
+      <blockquote data-reveal="" style="opacity: 0; transform: translateY(34px); margin: 0; padding: 30px 28px; border-radius: 24px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08);">
+        <p style="font-family: Nunito, sans-serif; font-weight: 700; font-size: 19px; line-height: 1.45; margin: 0 0 20px; letter-spacing: -.3px;">{{ t.q1 }}</p>
+        <footer style="font-size: 14px; color: rgba(238,246,248,.5);">{{ t.q1a }}</footer>
+      </blockquote>
+      <blockquote data-reveal="" data-reveal-delay="120" style="opacity: 0; transform: translateY(34px); margin: 0; padding: 30px 28px; border-radius: 24px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08);">
+        <p style="font-family: Nunito, sans-serif; font-weight: 700; font-size: 19px; line-height: 1.45; margin: 0 0 20px; letter-spacing: -.3px;">{{ t.q2 }}</p>
+        <footer style="font-size: 14px; color: rgba(238,246,248,.5);">{{ t.q2a }}</footer>
+      </blockquote>
+      <blockquote data-reveal="" data-reveal-delay="240" style="opacity: 0; transform: translateY(34px); margin: 0; padding: 30px 28px; border-radius: 24px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08);">
+        <p style="font-family: Nunito, sans-serif; font-weight: 700; font-size: 19px; line-height: 1.45; margin: 0 0 20px; letter-spacing: -.3px;">{{ t.q3 }}</p>
+        <footer style="font-size: 14px; color: rgba(238,246,248,.5);">{{ t.q3a }}</footer>
+      </blockquote>
+    </div>
+  </section>
+  <section id="faq" style="max-width: 860px; margin: 0 auto; padding: 0 24px clamp(70px, 9vw, 120px);">
+    <h2 data-reveal="" style="opacity: 0; transform: translateY(20px); font-family: Nunito, sans-serif; font-weight: 900; font-size: clamp(28px, 3.2vw, 42px); line-height: 1.1; letter-spacing: -1px; margin: 0 0 clamp(28px, 4vw, 44px);">{{ t.faqTitle }}</h2>
+    <details data-reveal="" style="opacity: 0; transform: translateY(20px); border-top: 1px solid rgba(255,255,255,.1); padding: 22px 0;">
+      <summary style="list-style: none; cursor: pointer; display: flex; gap: 18px; align-items: baseline; font-family: Nunito, sans-serif; font-weight: 800; font-size: 19px; letter-spacing: -.3px;">
+        <span style="color: #45d9c0; font-size: 15px;">+</span>
+        <span>{{ t.faq1q }}</span>
+      </summary>
+      <p style="margin: 16px 0 0 36px; font-size: 16.5px; line-height: 1.65; color: rgba(238,246,248,.68); max-width: 38em;">{{ t.faq1a }}</p>
+    </details>
+    <details data-reveal="" data-reveal-delay="60" style="opacity: 0; transform: translateY(20px); border-top: 1px solid rgba(255,255,255,.1); padding: 22px 0;">
+      <summary style="list-style: none; cursor: pointer; display: flex; gap: 18px; align-items: baseline; font-family: Nunito, sans-serif; font-weight: 800; font-size: 19px; letter-spacing: -.3px;">
+        <span style="color: #45d9c0; font-size: 15px;">+</span>
+        <span>{{ t.faq2q }}</span>
+      </summary>
+      <p style="margin: 16px 0 0 36px; font-size: 16.5px; line-height: 1.65; color: rgba(238,246,248,.68); max-width: 38em;">{{ t.faq2a }}</p>
+    </details>
+    <details data-reveal="" data-reveal-delay="120" style="opacity: 0; transform: translateY(20px); border-top: 1px solid rgba(255,255,255,.1); padding: 22px 0;">
+      <summary style="list-style: none; cursor: pointer; display: flex; gap: 18px; align-items: baseline; font-family: Nunito, sans-serif; font-weight: 800; font-size: 19px; letter-spacing: -.3px;">
+        <span style="color: #45d9c0; font-size: 15px;">+</span>
+        <span>{{ t.faq3q }}</span>
+      </summary>
+      <p style="margin: 16px 0 0 36px; font-size: 16.5px; line-height: 1.65; color: rgba(238,246,248,.68); max-width: 38em;">{{ t.faq3a }}</p>
+    </details>
+    <details data-reveal="" data-reveal-delay="180" style="opacity: 0; transform: translateY(20px); border-top: 1px solid rgba(255,255,255,.1); padding: 22px 0;">
+      <summary style="list-style: none; cursor: pointer; display: flex; gap: 18px; align-items: baseline; font-family: Nunito, sans-serif; font-weight: 800; font-size: 19px; letter-spacing: -.3px;">
+        <span style="color: #45d9c0; font-size: 15px;">+</span>
+        <span>{{ t.faq4q }}</span>
+      </summary>
+      <p style="margin: 16px 0 0 36px; font-size: 16.5px; line-height: 1.65; color: rgba(238,246,248,.68); max-width: 38em;">{{ t.faq4a }}</p>
+    </details>
+    <details data-reveal="" data-reveal-delay="240" style="opacity: 0; transform: translateY(20px); border-top: 1px solid rgba(255,255,255,.1); border-bottom: 1px solid rgba(255,255,255,.1); padding: 22px 0;">
+      <summary style="list-style: none; cursor: pointer; display: flex; gap: 18px; align-items: baseline; font-family: Nunito, sans-serif; font-weight: 800; font-size: 19px; letter-spacing: -.3px;">
+        <span style="color: #45d9c0; font-size: 15px;">+</span>
+        <span>{{ t.faq5q }}</span>
+      </summary>
+      <p style="margin: 16px 0 0 36px; font-size: 16.5px; line-height: 1.65; color: rgba(238,246,248,.68); max-width: 38em;">{{ t.faq5a }}</p>
+    </details>
+  </section>
+  <section id="contact" style="max-width: 1200px; margin: 0 auto; padding: 0 24px clamp(70px, 9vw, 110px);">
+    <div data-reveal="" style="opacity: 0; transform: translateY(34px); position: relative; overflow: hidden; border-radius: 32px; padding: clamp(40px, 6vw, 80px) clamp(28px, 5vw, 70px); background: linear-gradient(135deg, rgba(46,144,250,.22), rgba(69,217,192,.14)); border: 1px solid rgba(255,255,255,.12);">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 36px; align-items: center;">
+        <div>
+          <h2 style="font-family: Nunito, sans-serif; font-weight: 900; font-size: clamp(30px, 3.6vw, 48px); line-height: 1.05; letter-spacing: -1.2px; margin: 0 0 18px; text-wrap: balance;">{{ t.ctaTitle }}</h2>
+          <p style="font-size: 17px; line-height: 1.6; color: rgba(238,246,248,.75); margin: 0 0 12px; max-width: 30em;">{{ t.ctaBody }}</p>
+          <p style="font-size: 15px; color: rgba(238,246,248,.6); margin: 0;">
+            <span>{{ t.ctaMail }}</span>
+            <a href="Support.dc.html" style="font-weight: 600;">{{ t.ctaLink }}</a>
+          </p>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 14px; justify-content: flex-end;">
+          <a href="https://apps.apple.com/fr/app/mindflow-budget/id6800087324" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 13px; padding: 16px 28px; border-radius: 16px; background: #fff; color: #08202a; font-weight: 700; font-size: 16px; transition: transform .25s ease;" style-hover="transform: translateY(-3px);">
+            <span style="font-size: 26px; line-height: 1;"></span>
+            <span>App Store</span>
+          </a>
+          <a href="https://play.google.com/store/search?q=Mindflow%20Budget&amp;c=apps" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 13px; padding: 16px 28px; border-radius: 16px; background: #fff; color: #08202a; font-weight: 700; font-size: 16px; transition: transform .25s ease;" style-hover="transform: translateY(-3px);">
+            <span style="font-size: 21px; line-height: 1; color: #0a84ff;">▶</span>
+            <span>Google Play</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer style="border-top: 1px solid rgba(255,255,255,.07); padding: 40px 24px 56px;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 20px 40px; align-items: center; justify-content: space-between;">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <img src="assets/icon.png" alt="" style="width: 30px; height: 30px; border-radius: 9px; display: block;">
+        <span style="font-size: 14px; color: rgba(238,246,248,.5);">© 2026 Mindflow Budget</span>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 26px; font-size: 14px;">
+        <a href="Confidentialite.dc.html">{{ t.legalPrivacy }}</a>
+        <a href="Conditions.dc.html">{{ t.legalTerms }}</a>
+        <a href="Support.dc.html">{{ t.navSupport }}</a>
+      </div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;motionIntensity&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;min&quot;:0,&quot;max&quot;:1.6,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Animation&quot;}}">
+class Component extends DCLogic {
+  state = { lang: 'fr', platform: 'ios' };
+
+  dict = {
+    fr: {
+      navFeatures: 'Fonctionnalités', navScreens: 'Aperçu', navPrivacy: 'Confidentialité',
+      navSupport: 'Support', navCta: 'Télécharger',
+      heroBadge: 'Disponible sur iOS et Android',
+      heroTitle: 'Vos finances, enfin simples.',
+      heroSub: 'Mindflow Budget réunit salaire, charges fixes et épargne dans une seule app claire. Pas de connexion bancaire, pas de compte : tout reste sur votre téléphone.',
+      dlOn: 'Télécharger sur', soon: 'Bientôt',
+      pill1: 'Aucun compte à créer', pill2: 'Aucune connexion bancaire', pill3: 'Français & English',
+      featuresTitle: 'Quatre écrans suffisent à tenir un budget toute l\u2019année.',
+      f1Title: 'Tout votre budget, en un regard',
+      f1Body: 'Salaire du mois, dépenses, épargne et reste à vivre sur un seul écran. Les cercles se remplissent au fil du mois et la répartition par catégorie se met à jour à chaque saisie.',
+      f2Title: 'Zéro oubli sur les charges fixes',
+      f2Body: 'Loyer, assurances, mutuelle, abonnements, forfait mobile : renseignés une fois, reportés automatiquement chaque mois, avec la date de prélèvement.',
+      f3Title: 'Épargner devient un simple calcul',
+      f3Body: 'Indiquez un montant cible et un délai. Mindflow vous dit combien mettre de côté ce mois-ci, et propose trois rythmes : prudent, équilibré ou ambitieux.',
+      f4Title: 'Chaque revenu compte',
+      f4Body: 'Salaire de base, prime, bourse, mission freelance : ajoutez autant de revenus complémentaires que nécessaire, le budget se recalcule immédiatement.',
+      screensTitle: 'L\u2019app, écran par écran',
+      screensHint: '',
+      privacyTitle: 'Vos données restent chez vous',
+      privacyBody: 'Mindflow fonctionne entièrement hors ligne. Aucune donnée bancaire n\u2019est collectée, aucun profil publicitaire n\u2019est créé. Vous choisissez si — et quand — vous sauvegardez.',
+      priv1: 'Aucune connexion à votre banque, aucune donnée transmise à un tiers.',
+      priv2: 'Aucun compte, aucune adresse e-mail demandée pour utiliser l\u2019app.',
+      priv3: 'Sauvegarde manuelle vers iCloud ou Google Drive, et restauration à tout moment.',
+      voicesTitle: 'Ce que les premiers utilisateurs retiennent',
+      q1: '« J\u2019ai enfin une vision claire de ce qu\u2019il me reste après les charges. »',
+      q1a: 'Camille — utilisatrice iOS',
+      q2: '« Les charges fixes reportées chaque mois, ça m\u2019évite dix minutes de saisie. »',
+      q2a: 'Yanis — utilisateur iOS',
+      q3: '« La recommandation d\u2019épargne m\u2019a fait passer de 0 à 300 € par mois. »',
+      q3a: 'Sarah — utilisatrice Android',
+      faqTitle: 'Questions fréquentes',
+      faq1q: 'Mindflow est-elle connectée à ma banque ?',
+      faq1a: 'Non. Vous saisissez vos montants vous-même. L\u2019app ne demande aucun identifiant bancaire et ne se synchronise avec aucun établissement.',
+      faq2q: 'Faut-il créer un compte ?',
+      faq2a: 'Non. L\u2019app s\u2019utilise immédiatement après l\u2019installation, sans e-mail ni mot de passe.',
+      faq3q: 'L\u2019app existe-t-elle sur Android ?',
+      faq3a: 'Oui. Mindflow Budget est disponible sur iPhone via l\u2019App Store et sur Android via Google Play.',
+      faq4q: 'Mes données sont-elles sauvegardées si je change de téléphone ?',
+      faq4a: 'Oui, via une sauvegarde manuelle sur iCloud ou Google Drive, que vous pouvez restaurer sur votre nouvel appareil.',
+      faq5q: 'Puis-je changer de devise ou de langue ?',
+      faq5a: 'Oui. La langue et la devise se règlent dans les réglages, ainsi que le thème et le fond d\u2019écran de l\u2019app.',
+      ctaTitle: 'Commencez le mois avec un budget clair.',
+      ctaBody: 'Mindflow Budget est disponible sur iPhone et sur Android.',
+      ctaMail: 'Une question ? ', ctaLink: 'Contacter le support →',
+      legalPrivacy: 'Politique de confidentialité', legalTerms: 'Conditions d\u2019utilisation'
+    },
+    en: {
+      navFeatures: 'Features', navScreens: 'Screens', navPrivacy: 'Privacy',
+      navSupport: 'Support', navCta: 'Download',
+      heroBadge: 'Available on iOS and Android',
+      heroTitle: 'Your money, finally simple.',
+      heroSub: 'Mindflow Budget brings salary, fixed bills and savings into one clear app. No bank connection, no account: everything stays on your phone.',
+      dlOn: 'Get it on', soon: 'Soon',
+      pill1: 'No account needed', pill2: 'No bank connection', pill3: 'Français & English',
+      featuresTitle: 'Four screens are enough to run a budget all year.',
+      f1Title: 'Your whole budget at a glance',
+      f1Body: 'Monthly income, spending, savings and what is left, all on one screen. The rings fill as the month goes by and the category breakdown updates with every entry.',
+      f2Title: 'Fixed bills you never forget',
+      f2Body: 'Rent, insurance, subscriptions, phone plan: entered once, carried over automatically every month, with the debit date.',
+      f3Title: 'Saving becomes simple maths',
+      f3Body: 'Set a target amount and a deadline. Mindflow tells you how much to put aside this month, with three paces: careful, balanced or ambitious.',
+      f4Title: 'Every income counts',
+      f4Body: 'Base salary, bonus, grant, freelance work: add as many extra incomes as you need and the budget recalculates instantly.',
+      screensTitle: 'The app, screen by screen',
+      screensHint: 'Real screenshots from the app on iPhone 15 and Galaxy S25.',
+      privacyTitle: 'Your data stays with you',
+      privacyBody: 'Mindflow works fully offline. No banking data is collected, no advertising profile is built. You decide if — and when — you back up.',
+      priv1: 'No bank connection, no data sent to third parties.',
+      priv2: 'No account and no email address required to use the app.',
+      priv3: 'Manual backup to iCloud or Google Drive, restorable any time.',
+      voicesTitle: 'What early users tell us',
+      q1: '“I finally see clearly what is left once the bills are paid.”',
+      q1a: 'Camille — iOS user',
+      q2: '“Fixed bills carried over each month saves me ten minutes of typing.”',
+      q2a: 'Yanis — iOS user',
+      q3: '“The savings recommendation took me from 0 to €300 a month.”',
+      q3a: 'Sarah — Android user',
+      faqTitle: 'Frequently asked questions',
+      faq1q: 'Is Mindflow connected to my bank?',
+      faq1a: 'No. You enter your amounts yourself. The app never asks for banking credentials and does not sync with any institution.',
+      faq2q: 'Do I need an account?',
+      faq2a: 'No. The app works right after installation, with no email and no password.',
+      faq3q: 'Is the app available on Android?',
+      faq3a: 'Yes. Mindflow Budget is available on iPhone through the App Store and on Android through Google Play.',
+      faq4q: 'Is my data safe if I change phone?',
+      faq4a: 'Yes, through a manual backup to iCloud or Google Drive that you can restore on your new device.',
+      faq5q: 'Can I change currency or language?',
+      faq5a: 'Yes. Language and currency live in the settings, along with the app theme and wallpaper.',
+      ctaTitle: 'Start the month with a clear budget.',
+      ctaBody: 'Mindflow Budget is available on iPhone and on Android.',
+      ctaMail: 'A question? ', ctaLink: 'Contact support →',
+      legalPrivacy: 'Privacy policy', legalTerms: 'Terms of use'
+    }
+  };
+
+  shown = [];
+
+  componentDidMount() {
+    this.io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        this.shown.push(e.target);
+        this.apply(e.target);
+        this.io.unobserve(e.target);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    document.querySelectorAll('[data-reveal]').forEach((el) => {
+      if (el.style.opacity === '0') el.style.filter = 'blur(12px)';
+      this.io.observe(el);
+    });
+
+    this.onScroll = () => {
+      if (this.raf) return;
+      this.raf = requestAnimationFrame(() => {
+        this.raf = null;
+        const m = this.motion();
+        const vh = window.innerHeight;
+        const doc = document.documentElement;
+        const bar = document.querySelector('[data-progress]');
+        if (bar) {
+          const p = doc.scrollTop / Math.max(1, doc.scrollHeight - vh);
+          bar.style.width = (p * 100).toFixed(2) + '%';
+        }
+        const hero = document.querySelector('[data-hero-phone]');
+        if (hero) {
+          const y = Math.min(1, Math.max(0, doc.scrollTop / vh));
+          hero.style.transform = 'perspective(1400px) translateY(' + (-y * 70 * m).toFixed(1) + 'px) rotateX(' + (y * 9 * m).toFixed(2) + 'deg) scale(' + (1 - y * 0.07 * m).toFixed(3) + ')';
+        }
+        document.querySelectorAll('[data-parallax]').forEach((el) => {
+          const sp = parseFloat(el.dataset.parallax) || 0;
+          const r = el.getBoundingClientRect();
+          const off = (r.top + r.height / 2 - vh / 2) * sp * m;
+          // Velaarmon-style: the phone grows and straightens as it reaches the middle of the screen
+          const q = Math.min(1, Math.max(0, (vh * 0.95 - r.top) / (vh * 0.75)));
+          const e = 1 - Math.pow(1 - q, 3);
+          const sc = (0.9 + 0.1 * e) + (1 - m) * (1 - (0.9 + 0.1 * e));
+          const rot = (1 - e) * 5 * m;
+          el.style.transform = 'perspective(1600px) translate3d(0,' + off.toFixed(1) + 'px,0) scale(' + sc.toFixed(4) + ') rotateX(' + rot.toFixed(2) + 'deg)';
+        });
+        document.querySelectorAll('[data-drift]').forEach((el) => {
+          if (el.style.opacity !== '1') return;
+          const sp = parseFloat(el.dataset.drift) || 0;
+          const r = el.getBoundingClientRect();
+          const off = (r.top + r.height / 2 - vh / 2) * sp * m;
+          el.style.transform = 'translate3d(0,' + off.toFixed(1) + 'px,0)';
+        });
+        document.querySelectorAll('[data-gallery-track]').forEach((tr) => {
+          const wrap = tr.parentElement;
+          if (!wrap) return;
+          const max = tr.scrollWidth - wrap.clientWidth;
+          if (max <= 0) return;
+          const r = wrap.getBoundingClientRect();
+          const p = Math.min(1, Math.max(0, (vh - r.top) / (vh + r.height)));
+          tr.style.transform = 'translate3d(' + (-max * p).toFixed(1) + 'px,0,0)';
+        });
+      });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    window.addEventListener('resize', this.onScroll);
+    this.onScroll();
+  }
+
+  componentDidUpdate() {
+    requestAnimationFrame(() => {
+      this.shown.forEach((el) => this.apply(el));
+      document.querySelectorAll('[data-reveal]').forEach((el) => {
+        if (this.shown.indexOf(el) === -1 && this.io) this.io.observe(el);
+      });
+      if (this.onScroll) this.onScroll();
+    });
+  }
+
+  componentWillUnmount() {
+    if (this.io) this.io.disconnect();
+    window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('resize', this.onScroll);
+  }
+
+  motion() {
+    const v = this.props.motionIntensity;
+    return typeof v === 'number' ? v : 1;
+  }
+
+  apply(el) {
+    const d = parseInt(el.dataset.revealDelay || '0', 10);
+    el.style.transition = 'opacity 1s cubic-bezier(.16,.84,.2,1) ' + d + 'ms, transform 1.15s cubic-bezier(.16,.84,.2,1) ' + d + 'ms, filter 1s ease ' + d + 'ms';
+    el.style.opacity = '1';
+    el.style.filter = 'blur(0px)';
+    el.style.transform = 'none';
+  }
+
+  pill(active) {
+    return {
+      padding: '7px 14px', borderRadius: '999px', border: 'none', cursor: 'pointer',
+      fontFamily: 'Manrope, sans-serif', fontSize: '13px', fontWeight: 700,
+      background: active ? '#eef6f8' : 'transparent',
+      color: active ? '#07222c' : 'rgba(238,246,248,.62)',
+      transition: 'background .25s ease, color .25s ease'
+    };
+  }
+
+  renderVals() {
+    const lang = this.state.lang;
+    const plat = this.state.platform;
+    return {
+      t: this.dict[lang],
+      frBtn: this.pill(lang === 'fr'),
+      enBtn: this.pill(lang === 'en'),
+      iosBtn: this.pill(plat === 'ios'),
+      andBtn: this.pill(plat === 'android'),
+      isIos: plat === 'ios',
+      isAndroid: plat === 'android',
+      setFr: () => this.setState({ lang: 'fr' }),
+      setEn: () => this.setState({ lang: 'en' }),
+      setIos: () => this.setState({ platform: 'ios' }),
+      setAnd: () => this.setState({ platform: 'android' })
+    };
+  }
+}
+</script>
+</body>
+</html>
