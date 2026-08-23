@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
+<style>#nl-badge-frame{display:none!important}</style>
 </head>
 <body>
 <x-dc>
@@ -22,7 +23,7 @@
 </helmet>
 <div style="min-height: 100vh; background: radial-gradient(90% 50% at 80% -10%, #14586b 0%, rgba(20,88,107,0) 60%), linear-gradient(180deg, #0a3241 0%, #06171e 45%, #051219 100%);">
   <header style="border-bottom: 1px solid rgba(255,255,255,.07); backdrop-filter: blur(14px);">
-    <nav style="max-width: 820px; margin: 0 auto; padding: 16px 24px; display: flex; align-items: center; gap: 16px;">
+    <nav style="max-width: 820px; margin: 0 auto; padding: 14px clamp(16px, 4vw, 24px); display: flex; align-items: center; flex-wrap: wrap; gap: 10px 16px;">
       <a href="Mindflow Budget Site.dc.html" style="display: flex; align-items: center; gap: 12px; color: inherit;">
         <img src="assets/icon.png" alt="Mindflow Budget" style="width: 34px; height: 34px; border-radius: 10px; display: block;" />
         <span style="font-family: Nunito, sans-serif; font-weight: 900; font-size: 18px;">Mindflow</span>
@@ -36,8 +37,8 @@
     </nav>
   </header>
 
-  <main style="max-width: 820px; margin: 0 auto; padding: clamp(48px, 7vw, 90px) 24px 110px;">
-    <h1 style="font-family: Nunito, sans-serif; font-weight: 900; font-size: clamp(34px, 5vw, 54px); line-height: 1.05; letter-spacing: -1.4px; margin: 0 0 14px;">{{ t.title }}</h1>
+  <main style="max-width: 820px; margin: 0 auto; padding: clamp(40px, 7vw, 90px) clamp(18px, 4vw, 24px) 96px;">
+    <h1 style="font-family: Nunito, sans-serif; font-weight: 900; font-size: clamp(29px, 6vw, 54px); line-height: 1.06; letter-spacing: -1.1px; margin: 0 0 14px;">{{ t.title }}</h1>
     <p style="font-size: 14.5px; color: rgba(238,246,248,.5); margin: 0 0 44px;">{{ t.updated }}</p>
     <p style="font-size: 18px; line-height: 1.7; color: rgba(238,246,248,.82); margin: 0 0 46px; text-wrap: pretty;">{{ t.intro }}</p>
 

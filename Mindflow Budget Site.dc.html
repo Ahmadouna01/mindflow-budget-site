@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
+<style>#nl-badge-frame{display:none!important}</style>
 </head>
 <body>
 <x-dc>
@@ -27,43 +28,42 @@
 <div style="position: relative; overflow: hidden; background: radial-gradient(120% 70% at 78% -5%, #1b6b7d 0%, rgba(27,107,125,0) 55%), radial-gradient(90% 60% at 10% 15%, #0f4e5f 0%, rgba(15,78,95,0) 60%), linear-gradient(178deg, #0a3644 0%, #072a35 30%, #06171e 62%, #051219 100%);">
   <div data-progress="" style="position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: linear-gradient(90deg, #2e90fa, #45d9c0); z-index: 60; box-shadow: 0 0 18px rgba(46,144,250,.8);"></div>
   <header style="position: sticky; top: 0; z-index: 50; backdrop-filter: blur(18px); background: rgba(6,23,30,.62); border-bottom: 1px solid rgba(255,255,255,.07);">
-    <nav style="max-width: 1200px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; gap: 28px;">
-      <a href="#top" style="display: flex; align-items: center; gap: 12px; color: inherit;">
+    <nav style="max-width: 1200px; margin: 0 auto; padding: 12px clamp(16px, 4vw, 24px); display: flex; align-items: center; flex-wrap: nowrap; gap: clamp(10px, 2.4vw, 26px);">
+      <a href="#top" style="display: flex; align-items: center; gap: 12px; color: inherit; flex: none;">
         <img src="assets/icon.png" alt="Mindflow Budget" style="width: 38px; height: 38px; border-radius: 11px; display: block;">
         <span style="font-family: Nunito, sans-serif; font-weight: 900; font-size: 19px; letter-spacing: -.2px;">Mindflow</span>
       </a>
-      <div style="flex: 1;"></div>
-      <div style="display: flex; align-items: center; gap: 26px; font-size: 14.5px; font-weight: 500; color: rgba(238,246,248,.72);">
+      <div style="display: flex; align-items: center; flex-wrap: nowrap; flex: 0 1 auto; min-width: 0; margin-left: auto; overflow-x: auto; scrollbar-width: none; gap: clamp(12px, 2.2vw, 26px); font-size: 14.5px; font-weight: 500; white-space: nowrap; color: rgba(238,246,248,.72);">
         <a href="#features" style="color: inherit;">{{ t.navFeatures }}</a>
         <a href="#screens" style="color: inherit;">{{ t.navScreens }}</a>
         <a href="#privacy" style="color: inherit;">{{ t.navPrivacy }}</a>
         <a href="#faq" style="color: inherit;">FAQ</a>
         <a href="Support.dc.html" style="color: inherit;">{{ t.navSupport }}</a>
       </div>
-      <div style="display: flex; align-items: center; gap: 4px; padding: 4px; border-radius: 999px; border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.04);">
+      <div style="display: flex; align-items: center; flex: none; gap: 4px; padding: 4px; border-radius: 999px; border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.04);">
         <button onClick="{{ setFr }}" style="{{ frBtn }}">FR</button>
         <button onClick="{{ setEn }}" style="{{ enBtn }}">EN</button>
       </div>
-      <a href="#download" style="padding: 11px 20px; border-radius: 999px; background: #0a84ff; color: #fff; font-weight: 700; font-size: 14.5px; box-shadow: 0 10px 30px -10px rgba(10,132,255,.9);" style-hover="background: #2a97ff;">{{ t.navCta }}</a>
+      <a href="#download" style="flex: none; white-space: nowrap; padding: 11px 18px; border-radius: 999px; background: #0a84ff; color: #fff; font-weight: 700; font-size: 14.5px; box-shadow: 0 10px 30px -10px rgba(10,132,255,.9);" style-hover="background: #2a97ff;">{{ t.navCta }}</a>
     </nav>
   </header>
-  <section id="top" style="max-width: 1200px; margin: 0 auto; padding: clamp(56px, 8vw, 110px) 24px clamp(60px, 8vw, 120px); display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: clamp(32px, 5vw, 72px); align-items: center;">
+  <section id="top" style="max-width: 1200px; margin: 0 auto; padding: clamp(44px, 8vw, 110px) clamp(18px, 4vw, 24px) clamp(56px, 8vw, 120px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr)); gap: clamp(38px, 5vw, 72px); align-items: center;">
     <div>
       <div data-reveal="" style="opacity: 0; transform: translateY(26px); display: inline-flex; align-items: center; gap: 10px; padding: 7px 14px 7px 8px; border-radius: 999px; border: 1px solid rgba(69,217,192,.32); background: rgba(69,217,192,.09); font-size: 13.5px; font-weight: 600; color: #9ff0e0; margin-bottom: 26px;">
         <span style="width: 8px; height: 8px; border-radius: 50%; background: #45d9c0; margin-left: 6px; animation: mfPulse 2.4s ease-in-out infinite;"></span>
         <span>{{ t.heroBadge }}</span>
       </div>
-      <h1 data-reveal="" data-reveal-delay="80" style="opacity: 0; transform: translateY(26px); font-family: Nunito, sans-serif; font-weight: 900; font-size: clamp(42px, 6vw, 76px); line-height: 1.02; letter-spacing: -1.8px; margin: 0 0 22px; text-wrap: balance;">{{ t.heroTitle }}</h1>
+      <h1 data-reveal="" data-reveal-delay="80" style="opacity: 0; transform: translateY(26px); font-family: Nunito, sans-serif; font-weight: 900; font-size: clamp(34px, 7.2vw, 76px); line-height: 1.03; letter-spacing: -1.4px; margin: 0 0 22px; text-wrap: balance;">{{ t.heroTitle }}</h1>
       <p data-reveal="" data-reveal-delay="160" style="opacity: 0; transform: translateY(26px); font-size: clamp(17px, 1.6vw, 20px); line-height: 1.6; color: rgba(238,246,248,.72); margin: 0 0 34px; max-width: 30em; text-wrap: pretty;">{{ t.heroSub }}</p>
       <div id="download" data-reveal="" data-reveal-delay="240" style="opacity: 0; transform: translateY(26px); display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 30px; scroll-margin-top: 100px;">
-        <a href="https://apps.apple.com/fr/app/mindflow-budget/id6800087324" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 13px; padding: 15px 26px; border-radius: 16px; background: #fff; color: #08202a; font-weight: 700; font-size: 16px; box-shadow: 0 20px 50px -18px rgba(255,255,255,.45); transition: transform .25s ease;" style-hover="transform: translateY(-3px);">
+        <a href="https://apps.apple.com/fr/app/mindflow-budget/id6800087324" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 13px; padding: 14px 22px; border-radius: 16px; background: #fff; color: #08202a; font-weight: 700; font-size: 16px; box-shadow: 0 20px 50px -18px rgba(255,255,255,.45); transition: transform .25s ease;" style-hover="transform: translateY(-3px);">
           <span style="font-size: 26px; line-height: 1; font-family: Nunito, sans-serif;"></span>
           <span style="display: flex; flex-direction: column; line-height: 1.25;">
             <span style="font-size: 11.5px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: rgba(8,32,42,.6);">{{ t.dlOn }}</span>
             <span>App Store</span>
           </span>
         </a>
-        <a href="https://play.google.com/store/search?q=Mindflow%20Budget&amp;c=apps" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 13px; padding: 15px 26px; border-radius: 16px; background: #fff; color: #08202a; font-weight: 700; font-size: 16px; box-shadow: 0 20px 50px -18px rgba(255,255,255,.45); transition: transform .25s ease;" style-hover="transform: translateY(-3px);">
+        <a href="https://play.google.com/store/search?q=Mindflow%20Budget&amp;c=apps" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 13px; padding: 14px 22px; border-radius: 16px; background: #fff; color: #08202a; font-weight: 700; font-size: 16px; box-shadow: 0 20px 50px -18px rgba(255,255,255,.45); transition: transform .25s ease;" style-hover="transform: translateY(-3px);">
           <span style="font-size: 21px; line-height: 1; color: #0a84ff;">▶</span>
           <span style="display: flex; flex-direction: column; line-height: 1.25;">
             <span style="font-size: 11.5px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: rgba(8,32,42,.6);">{{ t.dlOn }}</span>
@@ -81,64 +81,79 @@
     </div>
     <div style="position: relative; display: flex; justify-content: center;">
       <div style="position: absolute; inset: -8% -4% 4%; background: radial-gradient(50% 50% at 50% 45%, rgba(46,144,250,.35), rgba(46,144,250,0) 70%); filter: blur(10px);"></div>
-      <div data-hero-phone="" style="position: relative; width: min(330px, 78vw); animation: mfFloat 7s ease-in-out infinite;">
+      <div data-hero-phone="" style="position: relative; width: min(330px, 74vw); animation: mfFloat 7s ease-in-out infinite;">
         <dc-import name="IPhoneFrame" src="assets/ip-home.jpeg" alt="Mindflow Budget sur iPhone" hint-size="100%,700px"></dc-import>
       </div>
     </div>
   </section>
-  <section id="features" style="max-width: 1200px; margin: 0 auto; padding: clamp(40px, 6vw, 90px) 24px;">
+  <section id="features" style="max-width: 1200px; margin: 0 auto; padding: clamp(40px, 6vw, 90px) clamp(18px, 4vw, 24px);">
     <p data-reveal="" style="opacity: 0; transform: translateY(20px); font-size: 13px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #45d9c0; margin: 0 0 16px;">{{ t.navFeatures }}</p>
-    <h2 data-reveal="" data-reveal-delay="80" style="opacity: 0; transform: translateY(20px); font-family: Nunito, sans-serif; font-weight: 900; font-size: clamp(32px, 4vw, 52px); line-height: 1.08; letter-spacing: -1.2px; margin: 0 0 clamp(48px, 6vw, 86px); max-width: 22em; text-wrap: balance;">{{ t.featuresTitle }}</h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(28px, 5vw, 80px); align-items: center; margin-bottom: clamp(70px, 9vw, 130px);">
+    <h2 data-reveal="" data-reveal-delay="80" style="opacity: 0; transform: translateY(20px); font-family: Nunito, sans-serif; font-weight: 900; font-size: clamp(28px, 5.6vw, 52px); line-height: 1.09; letter-spacing: -1px; margin: 0 0 clamp(48px, 6vw, 86px); max-width: 22em; text-wrap: balance;">{{ t.featuresTitle }}</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: clamp(34px, 5vw, 80px); align-items: center; margin-bottom: clamp(70px, 9vw, 130px);">
       <div data-reveal="" data-drift="-0.03" style="opacity: 0; transform: translateY(34px);">
-        <h3 style="font-family: Nunito, sans-serif; font-weight: 800; font-size: clamp(26px, 2.6vw, 36px); line-height: 1.14; margin: 0 0 18px; letter-spacing: -.7px;">{{ t.f1Title }}</h3>
+        <h3 style="font-family: Nunito, sans-serif; font-weight: 800; font-size: clamp(23px, 4.4vw, 36px); line-height: 1.15; margin: 0 0 18px; letter-spacing: -.7px;">{{ t.f1Title }}</h3>
         <p style="font-size: 17px; line-height: 1.65; color: rgba(238,246,248,.7); margin: 0; max-width: 34em; text-wrap: pretty;">{{ t.f1Body }}</p>
       </div>
       <div data-reveal="" data-reveal-delay="120" style="opacity: 0; transform: translateY(48px); display: flex; justify-content: center;">
-        <div data-parallax="-0.06" style="width: min(300px, 74vw);">
+        <div data-parallax="-0.06" style="width: min(300px, 70vw);">
           <dc-import name="IPhoneFrame" src="assets/ip-home.jpeg" alt="Écran d'accueil" hint-size="100%,640px"></dc-import>
         </div>
       </div>
     </div>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(28px, 5vw, 80px); align-items: center; margin-bottom: clamp(70px, 9vw, 130px);">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: clamp(34px, 5vw, 80px); align-items: center; margin-bottom: clamp(70px, 9vw, 130px);">
       <div data-reveal="" data-reveal-delay="120" style="opacity: 0; transform: translateY(48px); display: flex; justify-content: center; order: 2;">
-        <div data-parallax="-0.06" style="width: min(300px, 74vw);">
-          <dc-import name="IPhoneFrame" src="assets/ip-fixes.jpeg" alt="Charges fixes" hint-size="100%,640px"></dc-import>
-        </div>
-      </div>
-      <div data-reveal="" data-drift="-0.03" style="opacity: 0; transform: translateY(34px); order: 3;">
-        <h3 style="font-family: Nunito, sans-serif; font-weight: 800; font-size: clamp(26px, 2.6vw, 36px); line-height: 1.14; margin: 0 0 18px; letter-spacing: -.7px;">{{ t.f2Title }}</h3>
-        <p style="font-size: 17px; line-height: 1.65; color: rgba(238,246,248,.7); margin: 0; max-width: 34em; text-wrap: pretty;">{{ t.f2Body }}</p>
-      </div>
-    </div>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(28px, 5vw, 80px); align-items: center; margin-bottom: clamp(70px, 9vw, 130px);">
-      <div data-reveal="" data-drift="-0.03" style="opacity: 0; transform: translateY(34px);">
-        <h3 style="font-family: Nunito, sans-serif; font-weight: 800; font-size: clamp(26px, 2.6vw, 36px); line-height: 1.14; margin: 0 0 18px; letter-spacing: -.7px;">{{ t.f3Title }}</h3>
-        <p style="font-size: 17px; line-height: 1.65; color: rgba(238,246,248,.7); margin: 0; max-width: 34em; text-wrap: pretty;">{{ t.f3Body }}</p>
-      </div>
-      <div data-reveal="" data-reveal-delay="120" style="opacity: 0; transform: translateY(48px); display: flex; justify-content: center;">
-        <div data-parallax="-0.06" style="width: min(300px, 74vw);">
-          <dc-import name="IPhoneFrame" src="assets/ip-epargne.jpeg" alt="Épargne" hint-size="100%,640px"></dc-import>
-        </div>
-      </div>
-    </div>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(28px, 5vw, 80px); align-items: center;">
-      <div data-reveal="" data-reveal-delay="120" style="opacity: 0; transform: translateY(48px); display: flex; justify-content: center; order: 2;">
-        <div data-parallax="-0.06" style="width: min(300px, 74vw);">
+        <div data-parallax="-0.06" style="width: min(300px, 70vw);">
           <dc-import name="GalaxyFrame" src="assets/ga-revenus.jpeg" alt="Revenus complémentaires" hint-size="100%,640px"></dc-import>
         </div>
       </div>
       <div data-reveal="" data-drift="-0.03" style="opacity: 0; transform: translateY(34px); order: 3;">
-        <h3 style="font-family: Nunito, sans-serif; font-weight: 800; font-size: clamp(26px, 2.6vw, 36px); line-height: 1.14; margin: 0 0 18px; letter-spacing: -.7px;">{{ t.f4Title }}</h3>
+        <h3 style="font-family: Nunito, sans-serif; font-weight: 800; font-size: clamp(23px, 4.4vw, 36px); line-height: 1.15; margin: 0 0 18px; letter-spacing: -.7px;">{{ t.f4Title }}</h3>
         <p style="font-size: 17px; line-height: 1.65; color: rgba(238,246,248,.7); margin: 0; max-width: 34em; text-wrap: pretty;">{{ t.f4Body }}</p>
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: clamp(34px, 5vw, 80px); align-items: center; margin-bottom: clamp(70px, 9vw, 130px);">
+      <div data-reveal="" data-drift="-0.03" style="opacity: 0; transform: translateY(34px);">
+        <h3 style="font-family: Nunito, sans-serif; font-weight: 800; font-size: clamp(23px, 4.4vw, 36px); line-height: 1.15; margin: 0 0 18px; letter-spacing: -.7px;">{{ t.f2Title }}</h3>
+        <p style="font-size: 17px; line-height: 1.65; color: rgba(238,246,248,.7); margin: 0; max-width: 34em; text-wrap: pretty;">{{ t.f2Body }}</p>
+      </div>
+      <div data-reveal="" data-reveal-delay="120" style="opacity: 0; transform: translateY(48px); display: flex; justify-content: center;">
+        <div data-parallax="-0.06" style="width: min(300px, 70vw);">
+          <dc-import name="IPhoneFrame" src="assets/ip-fixes.jpeg" alt="Charges fixes" hint-size="100%,640px"></dc-import>
+        </div>
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: clamp(34px, 5vw, 80px); align-items: center; margin-bottom: clamp(70px, 9vw, 130px);">
+      <div data-reveal="" data-reveal-delay="120" style="opacity: 0; transform: translateY(48px); display: flex; justify-content: center; order: 2;">
+        <div data-parallax="-0.06" style="width: min(300px, 70vw);">
+          <dc-import name="IPhoneFrame" src="assets/ip-variables.jpeg" alt="Dépenses variables du mois" hint-size="100%,640px"></dc-import>
+        </div>
+      </div>
+      <div data-reveal="" data-drift="-0.03" style="opacity: 0; transform: translateY(34px); order: 3;">
+        <h3 style="font-family: Nunito, sans-serif; font-weight: 800; font-size: clamp(23px, 4.4vw, 36px); line-height: 1.15; margin: 0 0 18px; letter-spacing: -.7px;">{{ t.f5Title }}</h3>
+        <p style="font-size: 17px; line-height: 1.65; color: rgba(238,246,248,.7); margin: 0 0 26px; max-width: 34em; text-wrap: pretty;">{{ t.f5Body }}</p>
+        <div style="display: flex; align-items: flex-start; gap: 13px; padding: 16px 20px; border-radius: 18px; background: rgba(69,217,192,.09); border: 1px solid rgba(69,217,192,.28); max-width: 34em;">
+          <span style="width: 9px; height: 9px; border-radius: 50%; background: #45d9c0; margin-top: 7px; flex: none;"></span>
+          <span style="font-size: 15.5px; line-height: 1.55; color: rgba(238,246,248,.85);">{{ t.f5Note }}</span>
+        </div>
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: clamp(34px, 5vw, 80px); align-items: center;">
+      <div data-reveal="" data-drift="-0.03" style="opacity: 0; transform: translateY(34px);">
+        <h3 style="font-family: Nunito, sans-serif; font-weight: 800; font-size: clamp(23px, 4.4vw, 36px); line-height: 1.15; margin: 0 0 18px; letter-spacing: -.7px;">{{ t.f3Title }}</h3>
+        <p style="font-size: 17px; line-height: 1.65; color: rgba(238,246,248,.7); margin: 0; max-width: 34em; text-wrap: pretty;">{{ t.f3Body }}</p>
+      </div>
+      <div data-reveal="" data-reveal-delay="120" style="opacity: 0; transform: translateY(48px); display: flex; justify-content: center;">
+        <div data-parallax="-0.06" style="width: min(300px, 70vw);">
+          <dc-import name="IPhoneFrame" src="assets/ip-epargne.jpeg" alt="Épargne" hint-size="100%,640px"></dc-import>
+        </div>
       </div>
     </div>
   </section>
   <section id="screens" style="padding: clamp(60px, 8vw, 110px) 0; border-top: 1px solid rgba(255,255,255,.06); border-bottom: 1px solid rgba(255,255,255,.06); background: linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,0));">
-    <div style="max-width: 1200px; margin: 0 auto clamp(36px, 5vw, 60px); padding: 0 24px; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px;">
+    <div style="max-width: 1200px; margin: 0 auto clamp(30px, 5vw, 60px); padding: 0 clamp(18px, 4vw, 24px); display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px;">
       <div data-reveal="" style="opacity: 0; transform: translateY(20px);">
         <p style="font-size: 13px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #45d9c0; margin: 0 0 14px;">{{ t.navScreens }}</p>
-        <h2 style="font-family: Nunito, sans-serif; font-weight: 900; font-size: clamp(30px, 3.6vw, 46px); line-height: 1.1; letter-spacing: -1.1px; margin: 0;">{{ t.screensTitle }}</h2>
+        <h2 style="font-family: Nunito, sans-serif; font-weight: 900; font-size: clamp(27px, 5vw, 46px); line-height: 1.1; letter-spacing: -.9px; margin: 0;">{{ t.screensTitle }}</h2>
       </div>
       <div data-reveal="" data-reveal-delay="100" style="opacity: 0; transform: translateY(20px); display: flex; gap: 6px; padding: 5px; border-radius: 999px; border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.04);">
         <button onClick="{{ setIos }}" style="{{ iosBtn }}">Apple</button>
@@ -147,35 +162,36 @@
     </div>
     <div style="overflow: hidden; padding: 10px 0 24px;">
       <sc-if value="{{ isIos }}" hint-placeholder-val="{{ true }}">
-        <div data-gallery-track="" style="display: flex; gap: 30px; padding: 0 24px; will-change: transform;">
-          <div style="flex: none; width: clamp(190px, 22vw, 262px);"><dc-import name="IPhoneFrame" src="assets/ip-pin.jpeg" alt="Code PIN" hint-size="100%,560px"></dc-import></div>
-          <div style="flex: none; width: clamp(190px, 22vw, 262px);"><dc-import name="IPhoneFrame" src="assets/ip-home.jpeg" alt="Accueil" hint-size="100%,560px"></dc-import></div>
-          <div style="flex: none; width: clamp(190px, 22vw, 262px);"><dc-import name="IPhoneFrame" src="assets/ip-revenus.jpeg" alt="Revenus" hint-size="100%,560px"></dc-import></div>
-          <div style="flex: none; width: clamp(190px, 22vw, 262px);"><dc-import name="IPhoneFrame" src="assets/ip-fixes.jpeg" alt="Charges fixes" hint-size="100%,560px"></dc-import></div>
-          <div style="flex: none; width: clamp(190px, 22vw, 262px);"><dc-import name="IPhoneFrame" src="assets/ip-epargne.jpeg" alt="Épargne" hint-size="100%,560px"></dc-import></div>
-          <dc-import name="IPhoneFrame" src="assets/ip-profil.jpeg" alt="Profil" hint-size="100%,560px"></dc-import><div style="flex: none; width: clamp(190px, 22vw, 262px);"><dc-import name="IPhoneFrame" src="assets/ip-reglages.jpeg" alt="Réglages" hint-size="100%,560px"></dc-import></div>
-          <div style="flex: none; width: clamp(190px, 22vw, 262px);"></div>
+        <div data-gallery-track="" style="display: flex; gap: clamp(16px, 3vw, 30px); padding: 0 clamp(18px, 4vw, 24px); will-change: transform;">
+          <div style="flex: none; width: clamp(168px, 44vw, 262px);"><dc-import name="IPhoneFrame" src="assets/ip-pin.jpeg" alt="Code PIN" hint-size="100%,560px"></dc-import></div>
+          <div style="flex: none; width: clamp(168px, 44vw, 262px);"><dc-import name="IPhoneFrame" src="assets/ip-home.jpeg" alt="Accueil" hint-size="100%,560px"></dc-import></div>
+          <div style="flex: none; width: clamp(168px, 44vw, 262px);"><dc-import name="IPhoneFrame" src="assets/ip-revenus.jpeg" alt="Revenus" hint-size="100%,560px"></dc-import></div>
+          <div style="flex: none; width: clamp(168px, 44vw, 262px);"><dc-import name="IPhoneFrame" src="assets/ip-fixes.jpeg" alt="Charges fixes" hint-size="100%,560px"></dc-import></div>
+          <div style="flex: none; width: clamp(168px, 44vw, 262px);"><dc-import name="IPhoneFrame" src="assets/ip-variables.jpeg" alt="Dépenses variables" hint-size="100%,560px"></dc-import></div>
+          <div style="flex: none; width: clamp(168px, 44vw, 262px);"><dc-import name="IPhoneFrame" src="assets/ip-epargne.jpeg" alt="Épargne" hint-size="100%,560px"></dc-import></div>
+          <dc-import name="IPhoneFrame" src="assets/ip-profil.jpeg" alt="Profil" hint-size="100%,560px"></dc-import><div style="flex: none; width: clamp(168px, 44vw, 262px);"><dc-import name="IPhoneFrame" src="assets/ip-reglages.jpeg" alt="Réglages" hint-size="100%,560px"></dc-import></div>
+          <div style="flex: none; width: clamp(168px, 44vw, 262px);"></div>
         </div>
       </sc-if>
       <sc-if value="{{ isAndroid }}" hint-placeholder-val="{{ false }}">
-        <div data-gallery-track="" style="display: flex; gap: 30px; padding: 0 24px; will-change: transform;">
-          <div style="flex: none; width: clamp(190px, 22vw, 262px);"><dc-import name="GalaxyFrame" src="assets/ga-pin.jpeg" alt="Code PIN" hint-size="100%,560px"></dc-import></div>
-          <div style="flex: none; width: clamp(190px, 22vw, 262px);"><dc-import name="GalaxyFrame" src="assets/ga-home.jpeg" alt="Accueil" hint-size="100%,560px"></dc-import></div>
-          <div style="flex: none; width: clamp(190px, 22vw, 262px);"><dc-import name="GalaxyFrame" src="assets/ga-revenus.jpeg" alt="Revenus" hint-size="100%,560px"></dc-import></div>
-          <div style="flex: none; width: clamp(190px, 22vw, 262px);"><dc-import name="GalaxyFrame" src="assets/ga-fixes.jpeg" alt="Charges fixes" hint-size="100%,560px"></dc-import></div>
-          <div style="flex: none; width: clamp(190px, 22vw, 262px);"><dc-import name="GalaxyFrame" src="assets/ga-epargne.jpeg" alt="Épargne" hint-size="100%,560px"></dc-import></div>
-          <div style="flex: none; width: clamp(190px, 22vw, 262px);"><dc-import name="GalaxyFrame" src="assets/ga-reglages.jpeg" alt="Réglages" hint-size="100%,560px"></dc-import></div>
-          <div style="flex: none; width: clamp(190px, 22vw, 262px);"><dc-import name="GalaxyFrame" src="assets/ga-backup.jpeg" alt="Sauvegarde" hint-size="100%,560px"></dc-import></div>
+        <div data-gallery-track="" style="display: flex; gap: clamp(16px, 3vw, 30px); padding: 0 clamp(18px, 4vw, 24px); will-change: transform;">
+          <div style="flex: none; width: clamp(168px, 44vw, 262px);"><dc-import name="GalaxyFrame" src="assets/ga-pin.jpeg" alt="Code PIN" hint-size="100%,560px"></dc-import></div>
+          <div style="flex: none; width: clamp(168px, 44vw, 262px);"><dc-import name="GalaxyFrame" src="assets/ga-home.jpeg" alt="Accueil" hint-size="100%,560px"></dc-import></div>
+          <div style="flex: none; width: clamp(168px, 44vw, 262px);"><dc-import name="GalaxyFrame" src="assets/ga-revenus.jpeg" alt="Revenus" hint-size="100%,560px"></dc-import></div>
+          <div style="flex: none; width: clamp(168px, 44vw, 262px);"><dc-import name="GalaxyFrame" src="assets/ga-fixes.jpeg" alt="Charges fixes" hint-size="100%,560px"></dc-import></div>
+          <div style="flex: none; width: clamp(168px, 44vw, 262px);"><dc-import name="GalaxyFrame" src="assets/ga-epargne.jpeg" alt="Épargne" hint-size="100%,560px"></dc-import></div>
+          <div style="flex: none; width: clamp(168px, 44vw, 262px);"><dc-import name="GalaxyFrame" src="assets/ga-reglages.jpeg" alt="Réglages" hint-size="100%,560px"></dc-import></div>
+          <div style="flex: none; width: clamp(168px, 44vw, 262px);"><dc-import name="GalaxyFrame" src="assets/ga-backup.jpeg" alt="Sauvegarde" hint-size="100%,560px"></dc-import></div>
         </div>
       </sc-if>
     </div>
-    <p style="max-width: 1200px; margin: 18px auto 0; padding: 0 24px; font-size: 13.5px; color: rgba(238,246,248,.45);">{{ t.screensHint }}</p>
+    <p style="max-width: 1200px; margin: 18px auto 0; padding: 0 clamp(18px, 4vw, 24px); font-size: 13.5px; color: rgba(238,246,248,.45);">{{ t.screensHint }}</p>
   </section>
-  <section id="privacy" style="max-width: 1200px; margin: 0 auto; padding: clamp(70px, 9vw, 130px) 24px;">
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(32px, 5vw, 72px); align-items: center;">
+  <section id="privacy" style="max-width: 1200px; margin: 0 auto; padding: clamp(60px, 9vw, 130px) clamp(18px, 4vw, 24px);">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: clamp(34px, 5vw, 72px); align-items: center;">
       <div data-reveal="" style="opacity: 0; transform: translateY(30px);">
         <p style="font-size: 13px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #45d9c0; margin: 0 0 16px;">{{ t.navPrivacy }}</p>
-        <h2 style="font-family: Nunito, sans-serif; font-weight: 900; font-size: clamp(30px, 3.6vw, 48px); line-height: 1.08; letter-spacing: -1.1px; margin: 0 0 22px; text-wrap: balance;">{{ t.privacyTitle }}</h2>
+        <h2 style="font-family: Nunito, sans-serif; font-weight: 900; font-size: clamp(27px, 5vw, 48px); line-height: 1.09; letter-spacing: -.9px; margin: 0 0 22px; text-wrap: balance;">{{ t.privacyTitle }}</h2>
         <p style="font-size: 17px; line-height: 1.65; color: rgba(238,246,248,.7); margin: 0 0 34px; max-width: 34em; text-wrap: pretty;">{{ t.privacyBody }}</p>
         <div style="display: grid; gap: 14px;">
           <div style="display: flex; gap: 14px; align-items: flex-start; padding: 18px 20px; border-radius: 18px; background: rgba(255,255,255,.045); border: 1px solid rgba(255,255,255,.07);">
@@ -193,15 +209,15 @@
         </div>
       </div>
       <div data-reveal="" data-reveal-delay="120" style="opacity: 0; transform: translateY(48px); display: flex; justify-content: center;">
-        <div data-parallax="-0.05" style="width: min(300px, 74vw);">
+        <div data-parallax="-0.05" style="width: min(300px, 70vw);">
           <dc-import name="GalaxyFrame" src="assets/ga-backup.jpeg" alt="Sauvegarde iCloud et Google Drive" hint-size="100%,640px"></dc-import>
         </div>
       </div>
     </div>
   </section>
-  <section style="max-width: 1200px; margin: 0 auto; padding: 0 24px clamp(70px, 9vw, 120px);">
-    <h2 data-reveal="" style="opacity: 0; transform: translateY(20px); font-family: Nunito, sans-serif; font-weight: 900; font-size: clamp(28px, 3.2vw, 42px); line-height: 1.1; letter-spacing: -1px; margin: 0 0 clamp(32px, 4vw, 54px); max-width: 24em;">{{ t.voicesTitle }}</h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px;">
+  <section style="max-width: 1200px; margin: 0 auto; padding: 0 clamp(18px, 4vw, 24px) clamp(64px, 9vw, 120px);">
+    <h2 data-reveal="" style="opacity: 0; transform: translateY(20px); font-family: Nunito, sans-serif; font-weight: 900; font-size: clamp(26px, 4.6vw, 42px); line-height: 1.12; letter-spacing: -.8px; margin: 0 0 clamp(32px, 4vw, 54px); max-width: 24em;">{{ t.voicesTitle }}</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr)); gap: 18px;">
       <blockquote data-reveal="" style="opacity: 0; transform: translateY(34px); margin: 0; padding: 30px 28px; border-radius: 24px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08);">
         <p style="font-family: Nunito, sans-serif; font-weight: 700; font-size: 19px; line-height: 1.45; margin: 0 0 20px; letter-spacing: -.3px;">{{ t.q1 }}</p>
         <footer style="font-size: 14px; color: rgba(238,246,248,.5);">{{ t.q1a }}</footer>
@@ -216,56 +232,56 @@
       </blockquote>
     </div>
   </section>
-  <section id="faq" style="max-width: 860px; margin: 0 auto; padding: 0 24px clamp(70px, 9vw, 120px);">
-    <h2 data-reveal="" style="opacity: 0; transform: translateY(20px); font-family: Nunito, sans-serif; font-weight: 900; font-size: clamp(28px, 3.2vw, 42px); line-height: 1.1; letter-spacing: -1px; margin: 0 0 clamp(28px, 4vw, 44px);">{{ t.faqTitle }}</h2>
+  <section id="faq" style="max-width: 860px; margin: 0 auto; padding: 0 clamp(18px, 4vw, 24px) clamp(64px, 9vw, 120px);">
+    <h2 data-reveal="" style="opacity: 0; transform: translateY(20px); font-family: Nunito, sans-serif; font-weight: 900; font-size: clamp(26px, 4.6vw, 42px); line-height: 1.12; letter-spacing: -.8px; margin: 0 0 clamp(28px, 4vw, 44px);">{{ t.faqTitle }}</h2>
     <details data-reveal="" style="opacity: 0; transform: translateY(20px); border-top: 1px solid rgba(255,255,255,.1); padding: 22px 0;">
       <summary style="list-style: none; cursor: pointer; display: flex; gap: 18px; align-items: baseline; font-family: Nunito, sans-serif; font-weight: 800; font-size: 19px; letter-spacing: -.3px;">
         <span style="color: #45d9c0; font-size: 15px;">+</span>
         <span>{{ t.faq1q }}</span>
       </summary>
-      <p style="margin: 16px 0 0 36px; font-size: 16.5px; line-height: 1.65; color: rgba(238,246,248,.68); max-width: 38em;">{{ t.faq1a }}</p>
+      <p style="margin: 14px 0 0 33px; font-size: 16px; line-height: 1.65; color: rgba(238,246,248,.68); max-width: 38em;">{{ t.faq1a }}</p>
     </details>
     <details data-reveal="" data-reveal-delay="60" style="opacity: 0; transform: translateY(20px); border-top: 1px solid rgba(255,255,255,.1); padding: 22px 0;">
       <summary style="list-style: none; cursor: pointer; display: flex; gap: 18px; align-items: baseline; font-family: Nunito, sans-serif; font-weight: 800; font-size: 19px; letter-spacing: -.3px;">
         <span style="color: #45d9c0; font-size: 15px;">+</span>
         <span>{{ t.faq2q }}</span>
       </summary>
-      <p style="margin: 16px 0 0 36px; font-size: 16.5px; line-height: 1.65; color: rgba(238,246,248,.68); max-width: 38em;">{{ t.faq2a }}</p>
+      <p style="margin: 14px 0 0 33px; font-size: 16px; line-height: 1.65; color: rgba(238,246,248,.68); max-width: 38em;">{{ t.faq2a }}</p>
     </details>
     <details data-reveal="" data-reveal-delay="120" style="opacity: 0; transform: translateY(20px); border-top: 1px solid rgba(255,255,255,.1); padding: 22px 0;">
       <summary style="list-style: none; cursor: pointer; display: flex; gap: 18px; align-items: baseline; font-family: Nunito, sans-serif; font-weight: 800; font-size: 19px; letter-spacing: -.3px;">
         <span style="color: #45d9c0; font-size: 15px;">+</span>
         <span>{{ t.faq3q }}</span>
       </summary>
-      <p style="margin: 16px 0 0 36px; font-size: 16.5px; line-height: 1.65; color: rgba(238,246,248,.68); max-width: 38em;">{{ t.faq3a }}</p>
+      <p style="margin: 14px 0 0 33px; font-size: 16px; line-height: 1.65; color: rgba(238,246,248,.68); max-width: 38em;">{{ t.faq3a }}</p>
     </details>
     <details data-reveal="" data-reveal-delay="180" style="opacity: 0; transform: translateY(20px); border-top: 1px solid rgba(255,255,255,.1); padding: 22px 0;">
       <summary style="list-style: none; cursor: pointer; display: flex; gap: 18px; align-items: baseline; font-family: Nunito, sans-serif; font-weight: 800; font-size: 19px; letter-spacing: -.3px;">
         <span style="color: #45d9c0; font-size: 15px;">+</span>
         <span>{{ t.faq4q }}</span>
       </summary>
-      <p style="margin: 16px 0 0 36px; font-size: 16.5px; line-height: 1.65; color: rgba(238,246,248,.68); max-width: 38em;">{{ t.faq4a }}</p>
+      <p style="margin: 14px 0 0 33px; font-size: 16px; line-height: 1.65; color: rgba(238,246,248,.68); max-width: 38em;">{{ t.faq4a }}</p>
     </details>
     <details data-reveal="" data-reveal-delay="240" style="opacity: 0; transform: translateY(20px); border-top: 1px solid rgba(255,255,255,.1); border-bottom: 1px solid rgba(255,255,255,.1); padding: 22px 0;">
       <summary style="list-style: none; cursor: pointer; display: flex; gap: 18px; align-items: baseline; font-family: Nunito, sans-serif; font-weight: 800; font-size: 19px; letter-spacing: -.3px;">
         <span style="color: #45d9c0; font-size: 15px;">+</span>
         <span>{{ t.faq5q }}</span>
       </summary>
-      <p style="margin: 16px 0 0 36px; font-size: 16.5px; line-height: 1.65; color: rgba(238,246,248,.68); max-width: 38em;">{{ t.faq5a }}</p>
+      <p style="margin: 14px 0 0 33px; font-size: 16px; line-height: 1.65; color: rgba(238,246,248,.68); max-width: 38em;">{{ t.faq5a }}</p>
     </details>
   </section>
-  <section id="contact" style="max-width: 1200px; margin: 0 auto; padding: 0 24px clamp(70px, 9vw, 110px);">
-    <div data-reveal="" style="opacity: 0; transform: translateY(34px); position: relative; overflow: hidden; border-radius: 32px; padding: clamp(40px, 6vw, 80px) clamp(28px, 5vw, 70px); background: linear-gradient(135deg, rgba(46,144,250,.22), rgba(69,217,192,.14)); border: 1px solid rgba(255,255,255,.12);">
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 36px; align-items: center;">
+  <section id="contact" style="max-width: 1200px; margin: 0 auto; padding: 0 clamp(18px, 4vw, 24px) clamp(64px, 9vw, 110px);">
+    <div data-reveal="" style="opacity: 0; transform: translateY(34px); position: relative; overflow: hidden; border-radius: clamp(22px, 5vw, 32px); padding: clamp(30px, 6vw, 80px) clamp(22px, 5vw, 70px); background: linear-gradient(135deg, rgba(46,144,250,.22), rgba(69,217,192,.14)); border: 1px solid rgba(255,255,255,.12);">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 32px; align-items: center;">
         <div>
-          <h2 style="font-family: Nunito, sans-serif; font-weight: 900; font-size: clamp(30px, 3.6vw, 48px); line-height: 1.05; letter-spacing: -1.2px; margin: 0 0 18px; text-wrap: balance;">{{ t.ctaTitle }}</h2>
+          <h2 style="font-family: Nunito, sans-serif; font-weight: 900; font-size: clamp(27px, 5vw, 48px); line-height: 1.06; letter-spacing: -1px; margin: 0 0 18px; text-wrap: balance;">{{ t.ctaTitle }}</h2>
           <p style="font-size: 17px; line-height: 1.6; color: rgba(238,246,248,.75); margin: 0 0 12px; max-width: 30em;">{{ t.ctaBody }}</p>
           <p style="font-size: 15px; color: rgba(238,246,248,.6); margin: 0;">
             <span>{{ t.ctaMail }}</span>
             <a href="Support.dc.html" style="font-weight: 600;">{{ t.ctaLink }}</a>
           </p>
         </div>
-        <div style="display: flex; flex-wrap: wrap; gap: 14px; justify-content: flex-end;">
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: flex-start;">
           <a href="https://apps.apple.com/fr/app/mindflow-budget/id6800087324" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 13px; padding: 16px 28px; border-radius: 16px; background: #fff; color: #08202a; font-weight: 700; font-size: 16px; transition: transform .25s ease;" style-hover="transform: translateY(-3px);">
             <span style="font-size: 26px; line-height: 1;"></span>
             <span>App Store</span>
@@ -278,7 +294,7 @@
       </div>
     </div>
   </section>
-  <footer style="border-top: 1px solid rgba(255,255,255,.07); padding: 40px 24px 56px;">
+  <footer style="border-top: 1px solid rgba(255,255,255,.07); padding: 34px clamp(18px, 4vw, 24px) 50px;">
     <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 20px 40px; align-items: center; justify-content: space-between;">
       <div style="display: flex; align-items: center; gap: 12px;">
         <img src="assets/icon.png" alt="" style="width: 30px; height: 30px; border-radius: 9px; display: block;">
@@ -306,7 +322,7 @@ class Component extends DCLogic {
       heroSub: 'Mindflow Budget réunit salaire, charges fixes et épargne dans une seule app claire. Pas de connexion bancaire, pas de compte : tout reste sur votre téléphone.',
       dlOn: 'Télécharger sur', soon: 'Bientôt',
       pill1: 'Aucun compte à créer', pill2: 'Aucune connexion bancaire', pill3: 'Français & English',
-      featuresTitle: 'Quatre écrans suffisent à tenir un budget toute l\u2019année.',
+      featuresTitle: 'Cinq écrans suffisent à tenir un budget toute l\u2019année.',
       f1Title: 'Tout votre budget, en un regard',
       f1Body: 'Salaire du mois, dépenses, épargne et reste à vivre sur un seul écran. Les cercles se remplissent au fil du mois et la répartition par catégorie se met à jour à chaque saisie.',
       f2Title: 'Zéro oubli sur les charges fixes',
@@ -315,6 +331,9 @@ class Component extends DCLogic {
       f3Body: 'Indiquez un montant cible et un délai. Mindflow vous dit combien mettre de côté ce mois-ci, et propose trois rythmes : prudent, équilibré ou ambitieux.',
       f4Title: 'Chaque revenu compte',
       f4Body: 'Salaire de base, prime, bourse, mission freelance : ajoutez autant de revenus complémentaires que nécessaire, le budget se recalcule immédiatement.',
+      f5Title: 'Chaque mois repart à zéro',
+      f5Body: 'Cadeau, shopping, essence, péage : vos dépenses ponctuelles sont listées avec catégorie et montant, modifiables en un geste.',
+      f5Note: 'Contrairement aux charges fixes, elles ne se reportent jamais — le mois suivant démarre sur une liste vierge.',
       screensTitle: 'L\u2019app, écran par écran',
       screensHint: '',
       privacyTitle: 'Vos données restent chez vous',
@@ -353,7 +372,7 @@ class Component extends DCLogic {
       heroSub: 'Mindflow Budget brings salary, fixed bills and savings into one clear app. No bank connection, no account: everything stays on your phone.',
       dlOn: 'Get it on', soon: 'Soon',
       pill1: 'No account needed', pill2: 'No bank connection', pill3: 'Français & English',
-      featuresTitle: 'Four screens are enough to run a budget all year.',
+      featuresTitle: 'Five screens are enough to run a budget all year.',
       f1Title: 'Your whole budget at a glance',
       f1Body: 'Monthly income, spending, savings and what is left, all on one screen. The rings fill as the month goes by and the category breakdown updates with every entry.',
       f2Title: 'Fixed bills you never forget',
@@ -362,6 +381,9 @@ class Component extends DCLogic {
       f3Body: 'Set a target amount and a deadline. Mindflow tells you how much to put aside this month, with three paces: careful, balanced or ambitious.',
       f4Title: 'Every income counts',
       f4Body: 'Base salary, bonus, grant, freelance work: add as many extra incomes as you need and the budget recalculates instantly.',
+      f5Title: 'Every month starts fresh',
+      f5Body: 'Gifts, shopping, fuel, tolls: your one-off expenses are listed with category and amount, editable in one tap.',
+      f5Note: 'Unlike fixed bills, they never carry over — next month always starts with a clean slate.',
       screensTitle: 'The app, screen by screen',
       screensHint: 'Real screenshots from the app on iPhone 15 and Galaxy S25.',
       privacyTitle: 'Your data stays with you',
@@ -394,26 +416,30 @@ class Component extends DCLogic {
     }
   };
 
-  shown = [];
+  shown = new WeakSet();
 
   componentDidMount() {
-    this.io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (!e.isIntersecting) return;
-        this.shown.push(e.target);
-        this.apply(e.target);
-        this.io.unobserve(e.target);
+    this.sweep = () => {
+      const vh = window.innerHeight;
+      document.querySelectorAll('[data-reveal]').forEach((el) => {
+        const done = this.shown.has(el);
+        if (!done) {
+          const r = el.getBoundingClientRect();
+          if (r.top > vh * 0.94 || r.bottom < 0) {
+            if (el.style.filter !== 'blur(12px)') el.style.filter = 'blur(12px)';
+            return;
+          }
+          this.shown.add(el);
+        }
+        if (el.style.opacity !== '1') this.apply(el);
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
-    document.querySelectorAll('[data-reveal]').forEach((el) => {
-      if (el.style.opacity === '0') el.style.filter = 'blur(12px)';
-      this.io.observe(el);
-    });
+    };
 
     this.onScroll = () => {
       if (this.raf) return;
       this.raf = requestAnimationFrame(() => {
         this.raf = null;
+        this.sweep();
         const m = this.motion();
         const vh = window.innerHeight;
         const doc = document.documentElement;
@@ -439,7 +465,7 @@ class Component extends DCLogic {
           el.style.transform = 'perspective(1600px) translate3d(0,' + off.toFixed(1) + 'px,0) scale(' + sc.toFixed(4) + ') rotateX(' + rot.toFixed(2) + 'deg)';
         });
         document.querySelectorAll('[data-drift]').forEach((el) => {
-          if (el.style.opacity !== '1') return;
+          if (!this.shown.has(el)) return;
           const sp = parseFloat(el.dataset.drift) || 0;
           const r = el.getBoundingClientRect();
           const off = (r.top + r.height / 2 - vh / 2) * sp * m;
@@ -458,21 +484,18 @@ class Component extends DCLogic {
     };
     window.addEventListener('scroll', this.onScroll, { passive: true });
     window.addEventListener('resize', this.onScroll);
+    this.heal = setInterval(this.onScroll, 300);
     this.onScroll();
+    requestAnimationFrame(this.onScroll);
+    setTimeout(this.onScroll, 120);
   }
 
   componentDidUpdate() {
-    requestAnimationFrame(() => {
-      this.shown.forEach((el) => this.apply(el));
-      document.querySelectorAll('[data-reveal]').forEach((el) => {
-        if (this.shown.indexOf(el) === -1 && this.io) this.io.observe(el);
-      });
-      if (this.onScroll) this.onScroll();
-    });
+    if (this.onScroll) requestAnimationFrame(this.onScroll);
   }
 
   componentWillUnmount() {
-    if (this.io) this.io.disconnect();
+    clearInterval(this.heal);
     window.removeEventListener('scroll', this.onScroll);
     window.removeEventListener('resize', this.onScroll);
   }
