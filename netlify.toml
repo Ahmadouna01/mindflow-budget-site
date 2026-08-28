@@ -15,25 +15,46 @@
 
 [[redirects]]
   from = "/privacy"
-  to = "/Confidentialite.dc.html"
+  to = "/confidentialite.html"
   status = 301
 
 [[redirects]]
   from = "/confidentialite"
-  to = "/Confidentialite.dc.html"
+  to = "/confidentialite.html"
   status = 301
 
 [[redirects]]
   from = "/terms"
-  to = "/Conditions.dc.html"
+  to = "/conditions.html"
   status = 301
 
 [[redirects]]
   from = "/conditions"
-  to = "/Conditions.dc.html"
+  to = "/conditions.html"
   status = 301
 
 [[redirects]]
   from = "/support"
-  to = "/Support.dc.html"
+  to = "/support.html"
+  status = 301
+
+# Anciennes URL du site precedent
+[[redirects]]
+  from = "/Mindflow Budget Site.dc.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/Support.dc.html"
+  to = "/support.html"
+  status = 301
+
+[[redirects]]
+  from = "/Confidentialite.dc.html"
+  to = "/confidentialite.html"
+  status = 301
+
+[[redirects]]
+  from = "/Conditions.dc.html"
+  to = "/conditions.html"
   status = 301

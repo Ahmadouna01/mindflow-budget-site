@@ -1,26 +1,401 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Mindflow Budget — Vos finances, enfin simples</title>
-<meta name="description" content="Mindflow Budget réunit salaire, charges fixes et épargne dans une seule app claire. Sans connexion bancaire, sans compte. Disponible sur iPhone et Android." />
-<link rel="icon" href="assets/icon.png" />
-<link rel="canonical" href="https://mindflow-budget.app/" />
-<meta property="og:title" content="Mindflow Budget — Vos finances, enfin simples" />
-<meta property="og:description" content="Salaire, charges fixes et épargne dans une seule app claire. Sans connexion bancaire, sans compte." />
-<meta property="og:image" content="https://mindflow-budget.app/assets/icon.png" />
-<meta property="og:url" content="https://mindflow-budget.app/" />
-<meta property="og:type" content="website" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta http-equiv="refresh" content="0; url=Mindflow%20Budget%20Site.dc.html" />
-<script>location.replace('Mindflow%20Budget%20Site.dc.html' + location.hash);</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mindflow Budget — chaque euro à sa place</title>
+<meta name="description" content="Application de budget hors ligne, sans compte et sans banque connectée. Revenus, dépenses, prélèvements et épargne, sur votre téléphone uniquement.">
+<meta name="theme-color" content="#ececee">
+<link rel="icon" href="assets/icon.png">
+<link rel="apple-touch-icon" href="assets/icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mindflow Budget — chaque euro à sa place">
+<meta property="og:description" content="Application de budget hors ligne, sans compte et sans banque connectée. Revenus, dépenses, prélèvements et épargne, sur votre téléphone uniquement.">
 <style>
-  body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #06171e; color: #eef6f8; font-family: system-ui, sans-serif; }
-  a { color: #7fd3e8; }
+html{scroll-behavior:smooth}
+h1,h2,h3,h4,h5,h6{font-family:inherit;font-weight:600}
+body{margin:0;background:#ececee;color:#0a0a0a;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;letter-spacing:-.01em}
+a{color:#0a0a0a;text-decoration:none}
+a:hover{color:#0a0a0a;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+::selection{background:#0a0a0a;color:#fff}
+:focus-visible{outline:1.5px solid #0a0a0a;outline-offset:3px}
+@media(max-width:900px){
+[data-nav]{flex-wrap:wrap;height:auto !important;padding-top:10px !important;padding-bottom:10px !important;gap:12px !important}
+[data-navlinks]{order:3;width:100%;margin-left:0 !important;overflow-x:auto;white-space:nowrap;padding-bottom:2px}
+[data-g],[data-g3]{grid-template-columns:1fr !important;gap:34px !important}
+[data-hero-copy]{padding-bottom:52px !important}
+[data-toc]{position:static !important;top:auto !important}
+[data-tabsrow]{width:100%;overflow-x:auto}
+[data-ctamark]{justify-content:flex-start !important}
+[data-g3]>div{border-right:0 !important;border-bottom:1px solid rgba(0,0,0,.14);padding:26px 0 !important}
+[data-g3]>div:last-child{border-bottom:0}
+}
+@media(max-width:700px){
+[data-card]{padding-top:40px !important;padding-bottom:40px !important}
+[data-hero-copy]{padding-bottom:30px !important}
+[data-navlinks]{gap:18px;font-size:12.5px}
+[data-rail] figure{width:186px !important}
+[data-phones]>div{width:48% !important}
+[data-tabsrow] button{padding:9px 14px !important;font-size:12px !important}
+}
+@media(max-width:560px){
+[data-badge]{white-space:normal !important}
+[data-phones]{gap:10px !important}
+[data-phones]>div{margin-top:0 !important}
+[data-marquee]{padding:13px 18px !important;gap:30px !important;font-size:11px !important}
+}
+
+summary{list-style:none;cursor:pointer}
+summary::-webkit-details-marker{display:none}
+@keyframes mf-rail{to{transform:translateX(-50%)}}
+
+[data-rail]::-webkit-scrollbar{height:4px}
+[data-rail]::-webkit-scrollbar-track{background:rgba(0,0,0,.07);border-radius:99px}
+[data-rail]::-webkit-scrollbar-thumb{background:rgba(0,0,0,.24);border-radius:99px}
+[data-rail]::-webkit-scrollbar-thumb:hover{background:rgba(0,0,0,.38)}
+[data-card]{position:relative;background:transparent;border-radius:0;box-shadow:none;margin-bottom:0;padding-left:0 !important;padding-right:0 !important}
 </style>
 </head>
 <body>
-<p>Chargement de <a href="Mindflow%20Budget%20Site.dc.html">Mindflow Budget</a>…</p>
+<div style="max-width:100%;overflow-x:hidden">
+
+<header style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,.82);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,.12)">
+<nav data-nav="" style="max-width:1200px;margin:0 auto;padding:0 clamp(18px,4.2vw,28px);height:56px;display:flex;align-items:center;gap:32px">
+<a href="#top" style="display:flex;align-items:center;gap:10px;text-decoration:none">
+<img src="assets/icon.png" alt="Mindflow Budget" style="width:28px;height:28px;border-radius:8px;display:block">
+<span style="font-weight:600;font-size:15px;letter-spacing:-.02em">Mindflow Budget</span>
+</a>
+<div data-navlinks="" style="display:flex;gap:26px;margin-left:auto;font-size:13px;font-weight:400;letter-spacing:-.01em">
+<a href="#fonctions" style="text-decoration:none;opacity:.65">Fonctions</a>
+<a href="#ecrans" style="text-decoration:none;opacity:.65">Écrans</a>
+<a href="#confidentialite" style="text-decoration:none;opacity:.65">Confidentialité</a>
+<a href="#faq" style="text-decoration:none;opacity:.65">FAQ</a>
+<a href="support.html" style="text-decoration:none;opacity:.65">Support</a>
+</div>
+<a href="#telecharger" style="display:inline-flex;align-items:center;height:32px;padding:0 16px;border-radius:999px;background:#0a0a0a;color:#fff;font-size:13px;font-weight:600;text-decoration:none;letter-spacing:-.01em">Télécharger</a>
+</nav>
+</header>
+
+<section id="top" style="max-width:1200px;margin:0 auto;padding:0 clamp(18px,4.2vw,28px)">
+<div data-g="" style="display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:40px;align-items:center;padding:88px 0 0" data-card="">
+<div data-hero-copy="" style="padding-bottom:88px">
+<div data-reveal="" data-badge="" style="display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(0,0,0,.22);border-radius:999px;padding:5px 14px 5px 11px;font-size:11.5px;letter-spacing:.02em;margin-bottom:30px;white-space:nowrap">
+<span style="width:5px;height:5px;background:#0a0a0a;border-radius:50%"></span>Aucun compte, aucune banque liée.
+</div>
+<h1 data-reveal="" style="font-size:clamp(38px,5.2vw,72px);line-height:.94;letter-spacing:-.045em;font-weight:600;margin:0 0 26px;text-wrap:balance">Chaque euro<br>à sa place.</h1>
+<p data-reveal="" style="font-size:17px;line-height:1.5;max-width:44ch;margin:0 0 34px;color:rgba(0,0,0,.62);text-wrap:pretty">Mindflow Budget calcule ce qui rentre, ce qui part et ce qu'il vous reste vraiment. Trois onglets, une minute par mois, zéro donnée qui quitte votre téléphone.</p>
+<div data-reveal="" style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:26px">
+<a href="https://apps.apple.com/fr/app/mindflow-budget/id6800087324" style="display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 26px;border-radius:999px;background:#0a0a0a;color:#fff;text-decoration:none;font-size:15px;font-weight:600;white-space:nowrap;letter-spacing:-.01em" style-hover="background:#2a2a2a">
+<svg width="17" height="20" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 8 184.1 8 271.4c0 25.9 4.7 52.7 14.2 80.4 12.6 36.4 45.1 105.2 79.1 104.2 17.8-.4 30.3-12.6 53.4-12.6 22.4 0 34 12.2 53.9 12.2 34.2-.5 63.7-63 75.7-99.5-45.8-21.6-65.6-77.4-65.6-87.4zM262 78.3c17.2-20.9 26.3-45.2 24.6-72.3-25.8 1.6-49.3 13.9-66.9 33.9-15.7 17.9-25.1 43-23.4 68.1 28.1 2.2 53.2-11.4 65.7-29.7z"></path></svg>
+App Store</a>
+<a href="https://play.google.com/store/search?q=Mindflow%20Budget&amp;c=apps" style="display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 26px;border-radius:999px;border:1.5px solid #0a0a0a;color:#0a0a0a;text-decoration:none;font-size:15px;font-weight:600;white-space:nowrap;letter-spacing:-.01em" style-hover="background:#0a0a0a;color:#fff">
+<svg width="17" height="19" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M325.3 234.3 104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6-58.9-34.1-65.7 65.5 65.7 65.5 60.1-34.1c18-14.3 18-46.5-1.2-62.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"></path></svg>
+Google Play</a>
+</div>
+<p data-reveal="" style="font-size:12.5px;color:rgba(0,0,0,.45);margin:0;letter-spacing:.01em">Hors ligne · Sauvegarde iCloud &amp; Google Drive · Français &amp; English</p>
+</div>
+<div data-reveal="" style="position:relative;display:flex;justify-content:center;align-items:flex-end;padding-bottom:0;align-self:end">
+<div data-parallax="0.05" style="position:relative;margin-bottom:30px;width:min(322px,80%);padding:9px;border-radius:54px;background:linear-gradient(158deg,#b9b9b9 0%,#2b2b2b 9%,#0d0d0d 34%,#000 52%,#141414 70%,#2e2e2e 88%,#c2c2c2 100%);box-shadow:0 30px 70px rgba(0,0,0,.13),inset 0 0 0 1.4px rgba(255,255,255,.30),inset 0 0 0 3px rgba(0,0,0,.9)">
+<span style="position:absolute;right:-3px;top:29%;height:8.5%;width:3px;background:linear-gradient(90deg,#111,#8f8f8f);border-radius:0 3px 3px 0"></span><span style="position:absolute;left:-3px;top:17.5%;height:3.4%;width:3px;background:linear-gradient(270deg,#111,#8f8f8f);border-radius:3px 0 0 3px"></span><span style="position:absolute;left:-3px;top:24%;height:6%;width:3px;background:linear-gradient(270deg,#111,#8f8f8f);border-radius:3px 0 0 3px"></span><span style="position:absolute;left:-3px;top:32%;height:6%;width:3px;background:linear-gradient(270deg,#111,#8f8f8f);border-radius:3px 0 0 3px"></span><div style="position:relative;overflow:hidden;border-radius:45px;background:#000">
+<img src="assets/screens/accueil.jpg" alt="Écran d'accueil de Mindflow Budget" style="width:100%;display:block">
+<span style="position:absolute;top:1.9%;left:50%;transform:translateX(-50%);width:30%;aspect-ratio:3.4;background:#000;border-radius:999px;z-index:2;box-shadow:0 0 0 .5px rgba(255,255,255,.14)"></span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section style="max-width:1200px;margin:0 auto;padding:34px clamp(18px,4.2vw,28px) 40px">
+<div style="border:2px solid #0a0a0a;border-radius:999px;overflow:hidden;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,.06)">
+<div style="display:flex;width:max-content;animation:mf-rail 34s linear infinite;will-change:transform">
+<div data-marquee style="display:flex;align-items:center;gap:44px;padding:16px 26px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(0,0,0,.55);white-space:nowrap">
+<span>Revenus</span><span>·</span><span>Dépenses fixes</span><span>·</span><span>Dépenses variables</span><span>·</span><span>Calendrier des prélèvements</span><span>·</span><span>Épargne</span><span>·</span><span>Décomposition</span><span>·</span><span>Projection</span><span>·</span>
+</div>
+<div data-marquee style="display:flex;align-items:center;gap:44px;padding:16px 26px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(0,0,0,.55);white-space:nowrap" aria-hidden="true">
+<span>Revenus</span><span>·</span><span>Dépenses fixes</span><span>·</span><span>Dépenses variables</span><span>·</span><span>Calendrier des prélèvements</span><span>·</span><span>Épargne</span><span>·</span><span>Décomposition</span><span>·</span><span>Projection</span><span>·</span>
+</div>
+</div>
+</div>
+</section>
+
+<section style="max-width:1200px;margin:0 auto;padding:0 clamp(18px,4.2vw,28px)">
+<div data-g3="" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr))" data-card="">
+<div data-reveal="" style="padding:44px 30px 44px 0;border-right:1px solid rgba(0,0,0,.12)">
+<h3 style="font-size:21px;letter-spacing:-.03em;margin:0 0 8px">Aucune inscription</h3>
+<p style="margin:0;font-size:14px;line-height:1.5;color:rgba(0,0,0,.58)">Pas d'e-mail, pas de mot de passe. Vous ouvrez l'app et vous commencez.</p>
+</div>
+<div data-reveal="" style="padding:44px 30px;border-right:1px solid rgba(0,0,0,.12)">
+<h3 style="font-size:21px;letter-spacing:-.03em;margin:0 0 8px">Aucune banque liée</h3>
+<p style="margin:0;font-size:14px;line-height:1.5;color:rgba(0,0,0,.58)">Vous saisissez vos montants. Rien ne se connecte à vos comptes.</p>
+</div>
+<div data-reveal="" style="padding:44px 0 44px 30px">
+<h3 style="font-size:21px;letter-spacing:-.03em;margin:0 0 8px">Aucune publicité</h3>
+<p style="margin:0;font-size:14px;line-height:1.5;color:rgba(0,0,0,.58)">Pas de traqueur, pas de bannière, pas de revente de données.</p>
+</div>
+</div>
+</section>
+
+<section id="fonctions" style="max-width:1200px;margin:0 auto;padding:0 clamp(18px,4.2vw,28px)">
+<div style="padding:80px 0 44px">
+<p data-reveal="" style="font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(0,0,0,.45);margin:0 0 18px">Fonctions</p>
+<h2 data-reveal="" style="font-size:clamp(28px,3.6vw,48px);line-height:1;letter-spacing:-.04em;margin:0;max-width:20ch">Un mois de budget, en quatre gestes.</h2>
+</div>
+
+<div data-reveal="" data-g="" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center;padding:64px 0" data-card="">
+<div>
+<p style="font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(0,0,0,.42);margin:0 0 14px">01 / Revenus</p>
+<h3 style="font-size:clamp(24px,2.7vw,36px);line-height:1.02;letter-spacing:-.035em;margin:0 0 16px">Déclarez vos revenus une seule fois.</h3>
+<p style="font-size:14px;line-height:1.55;color:rgba(0,0,0,.6);max-width:46ch;margin:0 0 22px">Salaire de base, primes, bourse, freelance : ajoutez autant de lignes que nécessaire. Le total se met à jour à chaque frappe et se reporte sur le mois suivant.</p>
+<ul style="margin:0;padding:0;list-style:none;display:grid;gap:10px;font-size:14.5px;color:rgba(0,0,0,.72)">
+<li style="display:flex;gap:11px;align-items:baseline;border-top:1px solid rgba(0,0,0,.1);padding-top:10px"><span style="font-size:11px;color:rgba(0,0,0,.4)">→</span>Lignes de revenus illimitées</li>
+<li style="display:flex;gap:11px;align-items:baseline;border-top:1px solid rgba(0,0,0,.1);padding-top:10px"><span style="font-size:11px;color:rgba(0,0,0,.4)">→</span>Navigation mois par mois</li>
+</ul>
+</div>
+<div style="display:flex;justify-content:center">
+<div data-parallax="0.04" style="position:relative;width:min(292px,86%);padding:8px;border-radius:50px;background:linear-gradient(158deg,#b9b9b9 0%,#2b2b2b 9%,#0d0d0d 34%,#000 52%,#141414 70%,#2e2e2e 88%,#c2c2c2 100%);box-shadow:0 22px 55px rgba(0,0,0,.11),inset 0 0 0 1.4px rgba(255,255,255,.30),inset 0 0 0 3px rgba(0,0,0,.9)">
+<span style="position:absolute;right:-3px;top:29%;height:8.5%;width:3px;background:linear-gradient(90deg,#111,#8f8f8f);border-radius:0 3px 3px 0"></span><span style="position:absolute;left:-3px;top:17.5%;height:3.4%;width:3px;background:linear-gradient(270deg,#111,#8f8f8f);border-radius:3px 0 0 3px"></span><span style="position:absolute;left:-3px;top:24%;height:6%;width:3px;background:linear-gradient(270deg,#111,#8f8f8f);border-radius:3px 0 0 3px"></span><span style="position:absolute;left:-3px;top:32%;height:6%;width:3px;background:linear-gradient(270deg,#111,#8f8f8f);border-radius:3px 0 0 3px"></span><div style="position:relative;overflow:hidden;border-radius:42px;background:#000">
+<img src="assets/screens/revenus.jpg" alt="Saisie des revenus du mois" style="width:100%;display:block">
+<span style="position:absolute;top:1.9%;left:50%;transform:translateX(-50%);width:30%;aspect-ratio:3.4;background:#000;border-radius:999px;z-index:2;box-shadow:0 0 0 .5px rgba(255,255,255,.14)"></span>
+</div>
+</div>
+</div>
+</div>
+
+<div data-reveal="" data-g="" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center;padding:64px 0" data-card="">
+<div data-phones="" style="display:flex;justify-content:center;gap:18px;order:-1">
+<div data-parallax="0.06" style="position:relative;width:min(232px,46%);padding:7px;border-radius:42px;background:linear-gradient(158deg,#b9b9b9 0%,#2b2b2b 9%,#0d0d0d 34%,#000 52%,#141414 70%,#2e2e2e 88%,#c2c2c2 100%);box-shadow:0 22px 55px rgba(0,0,0,.11);margin-top:34px,inset 0 0 0 1.4px rgba(255,255,255,.30),inset 0 0 0 3px rgba(0,0,0,.9)">
+<span style="position:absolute;right:-2.5px;top:29%;height:8.5%;width:2.5px;background:linear-gradient(90deg,#111,#8f8f8f);border-radius:0 3px 3px 0"></span><span style="position:absolute;left:-2.5px;top:17.5%;height:3.4%;width:2.5px;background:linear-gradient(270deg,#111,#8f8f8f);border-radius:3px 0 0 3px"></span><span style="position:absolute;left:-2.5px;top:24%;height:6%;width:2.5px;background:linear-gradient(270deg,#111,#8f8f8f);border-radius:3px 0 0 3px"></span><span style="position:absolute;left:-2.5px;top:32%;height:6%;width:2.5px;background:linear-gradient(270deg,#111,#8f8f8f);border-radius:3px 0 0 3px"></span><div style="position:relative;overflow:hidden;border-radius:35px;background:#000">
+<img src="assets/screens/fixes.jpg" alt="Liste des dépenses fixes" style="width:100%;display:block">
+<span style="position:absolute;top:1.9%;left:50%;transform:translateX(-50%);width:30%;aspect-ratio:3.4;background:#000;border-radius:999px;z-index:2;box-shadow:0 0 0 .5px rgba(255,255,255,.14)"></span>
+</div>
+</div>
+<div data-parallax="0.02" style="position:relative;width:min(232px,46%);padding:7px;border-radius:42px;background:linear-gradient(158deg,#b9b9b9 0%,#2b2b2b 9%,#0d0d0d 34%,#000 52%,#141414 70%,#2e2e2e 88%,#c2c2c2 100%);box-shadow:0 22px 55px rgba(0,0,0,.11),inset 0 0 0 1.4px rgba(255,255,255,.30),inset 0 0 0 3px rgba(0,0,0,.9)">
+<span style="position:absolute;right:-2.5px;top:29%;height:8.5%;width:2.5px;background:linear-gradient(90deg,#111,#8f8f8f);border-radius:0 3px 3px 0"></span><span style="position:absolute;left:-2.5px;top:17.5%;height:3.4%;width:2.5px;background:linear-gradient(270deg,#111,#8f8f8f);border-radius:3px 0 0 3px"></span><span style="position:absolute;left:-2.5px;top:24%;height:6%;width:2.5px;background:linear-gradient(270deg,#111,#8f8f8f);border-radius:3px 0 0 3px"></span><span style="position:absolute;left:-2.5px;top:32%;height:6%;width:2.5px;background:linear-gradient(270deg,#111,#8f8f8f);border-radius:3px 0 0 3px"></span><div style="position:relative;overflow:hidden;border-radius:35px;background:#000">
+<img src="assets/screens/variables.jpg" alt="Liste des dépenses variables" style="width:100%;display:block">
+<span style="position:absolute;top:1.9%;left:50%;transform:translateX(-50%);width:30%;aspect-ratio:3.4;background:#000;border-radius:999px;z-index:2;box-shadow:0 0 0 .5px rgba(255,255,255,.14)"></span>
+</div>
+</div>
+</div>
+<div>
+<p style="font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(0,0,0,.42);margin:0 0 14px">02 / Dépenses</p>
+<h3 style="font-size:clamp(24px,2.7vw,36px);line-height:1.02;letter-spacing:-.035em;margin:0 0 16px">Le récurrent d'un côté, l'imprévu de l'autre.</h3>
+<p style="font-size:14px;line-height:1.55;color:rgba(0,0,0,.6);max-width:46ch;margin:0 0 22px">Loyer, assurances, abonnements : les dépenses fixes se reportent automatiquement chaque mois. Les variables restent propres au mois en cours, catégorie par catégorie.</p>
+<ul style="margin:0;padding:0;list-style:none;display:grid;gap:10px;font-size:14.5px;color:rgba(0,0,0,.72)">
+<li style="display:flex;gap:11px;align-items:baseline;border-top:1px solid rgba(0,0,0,.1);padding-top:10px"><span style="font-size:11px;color:rgba(0,0,0,.4)">→</span>Report automatique des fixes</li>
+<li style="display:flex;gap:11px;align-items:baseline;border-top:1px solid rgba(0,0,0,.1);padding-top:10px"><span style="font-size:11px;color:rgba(0,0,0,.4)">→</span>Catégories : logement, transport, loisirs…</li>
+</ul>
+</div>
+</div>
+
+<div data-reveal="" data-g="" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center;padding:64px 0" data-card="">
+<div>
+<p style="font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(0,0,0,.42);margin:0 0 14px">03 / Prélèvements</p>
+<h3 style="font-size:clamp(24px,2.7vw,36px);line-height:1.02;letter-spacing:-.035em;margin:0 0 16px">Savoir ce qui est déjà parti.</h3>
+<p style="font-size:14px;line-height:1.55;color:rgba(0,0,0,.6);max-width:46ch;margin:0 0 22px">Le calendrier du mois range vos prélèvements par date, barre ce qui est passé et additionne ce qui reste à venir. Plus de mauvaise surprise le 30.</p>
+<ul style="margin:0;padding:0;list-style:none;display:grid;gap:10px;font-size:14.5px;color:rgba(0,0,0,.72)">
+<li style="display:flex;gap:11px;align-items:baseline;border-top:1px solid rgba(0,0,0,.1);padding-top:10px"><span style="font-size:11px;color:rgba(0,0,0,.4)">→</span>Déjà prélevé / à venir</li>
+<li style="display:flex;gap:11px;align-items:baseline;border-top:1px solid rgba(0,0,0,.1);padding-top:10px"><span style="font-size:11px;color:rgba(0,0,0,.4)">→</span>Reste à couvrir, jour après jour</li>
+</ul>
+</div>
+<div style="display:flex;justify-content:center">
+<div data-parallax="0.04" style="position:relative;width:min(292px,86%);padding:8px;border-radius:50px;background:linear-gradient(158deg,#b9b9b9 0%,#2b2b2b 9%,#0d0d0d 34%,#000 52%,#141414 70%,#2e2e2e 88%,#c2c2c2 100%);box-shadow:0 22px 55px rgba(0,0,0,.11),inset 0 0 0 1.4px rgba(255,255,255,.30),inset 0 0 0 3px rgba(0,0,0,.9)">
+<span style="position:absolute;right:-3px;top:29%;height:8.5%;width:3px;background:linear-gradient(90deg,#111,#8f8f8f);border-radius:0 3px 3px 0"></span><span style="position:absolute;left:-3px;top:17.5%;height:3.4%;width:3px;background:linear-gradient(270deg,#111,#8f8f8f);border-radius:3px 0 0 3px"></span><span style="position:absolute;left:-3px;top:24%;height:6%;width:3px;background:linear-gradient(270deg,#111,#8f8f8f);border-radius:3px 0 0 3px"></span><span style="position:absolute;left:-3px;top:32%;height:6%;width:3px;background:linear-gradient(270deg,#111,#8f8f8f);border-radius:3px 0 0 3px"></span><div style="position:relative;overflow:hidden;border-radius:42px;background:#000">
+<img src="assets/screens/calendrier.jpg" alt="Calendrier des prélèvements du mois" style="width:100%;display:block">
+<span style="position:absolute;top:1.9%;left:50%;transform:translateX(-50%);width:30%;aspect-ratio:3.4;background:#000;border-radius:999px;z-index:2;box-shadow:0 0 0 .5px rgba(255,255,255,.14)"></span>
+</div>
+</div>
+</div>
+</div>
+
+<div data-reveal="" data-g="" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center;padding:64px 0" data-card="">
+<div data-phones="" style="display:flex;justify-content:center;gap:18px;order:-1">
+<div data-parallax="0.02" style="position:relative;width:min(232px,46%);padding:7px;border-radius:42px;background:linear-gradient(158deg,#b9b9b9 0%,#2b2b2b 9%,#0d0d0d 34%,#000 52%,#141414 70%,#2e2e2e 88%,#c2c2c2 100%);box-shadow:0 22px 55px rgba(0,0,0,.11),inset 0 0 0 1.4px rgba(255,255,255,.30),inset 0 0 0 3px rgba(0,0,0,.9)">
+<span style="position:absolute;right:-2.5px;top:29%;height:8.5%;width:2.5px;background:linear-gradient(90deg,#111,#8f8f8f);border-radius:0 3px 3px 0"></span><span style="position:absolute;left:-2.5px;top:17.5%;height:3.4%;width:2.5px;background:linear-gradient(270deg,#111,#8f8f8f);border-radius:3px 0 0 3px"></span><span style="position:absolute;left:-2.5px;top:24%;height:6%;width:2.5px;background:linear-gradient(270deg,#111,#8f8f8f);border-radius:3px 0 0 3px"></span><span style="position:absolute;left:-2.5px;top:32%;height:6%;width:2.5px;background:linear-gradient(270deg,#111,#8f8f8f);border-radius:3px 0 0 3px"></span><div style="position:relative;overflow:hidden;border-radius:35px;background:#000">
+<img src="assets/screens/epargne.jpg" alt="Objectif et recommandation d'épargne" style="width:100%;display:block">
+<span style="position:absolute;top:1.9%;left:50%;transform:translateX(-50%);width:30%;aspect-ratio:3.4;background:#000;border-radius:999px;z-index:2;box-shadow:0 0 0 .5px rgba(255,255,255,.14)"></span>
+</div>
+</div>
+<div data-parallax="0.06" style="position:relative;width:min(232px,46%);padding:7px;border-radius:42px;background:linear-gradient(158deg,#b9b9b9 0%,#2b2b2b 9%,#0d0d0d 34%,#000 52%,#141414 70%,#2e2e2e 88%,#c2c2c2 100%);box-shadow:0 22px 55px rgba(0,0,0,.11);margin-top:34px,inset 0 0 0 1.4px rgba(255,255,255,.30),inset 0 0 0 3px rgba(0,0,0,.9)">
+<span style="position:absolute;right:-2.5px;top:29%;height:8.5%;width:2.5px;background:linear-gradient(90deg,#111,#8f8f8f);border-radius:0 3px 3px 0"></span><span style="position:absolute;left:-2.5px;top:17.5%;height:3.4%;width:2.5px;background:linear-gradient(270deg,#111,#8f8f8f);border-radius:3px 0 0 3px"></span><span style="position:absolute;left:-2.5px;top:24%;height:6%;width:2.5px;background:linear-gradient(270deg,#111,#8f8f8f);border-radius:3px 0 0 3px"></span><span style="position:absolute;left:-2.5px;top:32%;height:6%;width:2.5px;background:linear-gradient(270deg,#111,#8f8f8f);border-radius:3px 0 0 3px"></span><div style="position:relative;overflow:hidden;border-radius:35px;background:#000">
+<img src="assets/screens/projection.jpg" alt="Épargne cumulée et projection" style="width:100%;display:block">
+<span style="position:absolute;top:1.9%;left:50%;transform:translateX(-50%);width:30%;aspect-ratio:3.4;background:#000;border-radius:999px;z-index:2;box-shadow:0 0 0 .5px rgba(255,255,255,.14)"></span>
+</div>
+</div>
+</div>
+<div>
+<p style="font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(0,0,0,.42);margin:0 0 14px">04 / Épargne</p>
+<h3 style="font-size:clamp(24px,2.7vw,36px);line-height:1.02;letter-spacing:-.035em;margin:0 0 16px">Un objectif, un montant, une trajectoire.</h3>
+<p style="font-size:14px;line-height:1.55;color:rgba(0,0,0,.6);max-width:46ch;margin:0 0 22px">Donnez un montant cible et un délai : l'app propose une épargne mensuelle, prudente, équilibrée ou ambitieuse, puis projette votre cumul à 3, 6 et 12 mois.</p>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
+<div style="padding:14px 16px;border-radius:16px;background:rgba(255,204,0,.16)"><p style="margin:0;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(0,0,0,.5)">Prudent</p><p style="margin:5px 0 0;font-weight:600;font-size:22px;letter-spacing:-.03em;color:#c98200">10 %</p></div>
+<div style="padding:14px 16px;border-radius:16px;background:rgba(52,199,89,.15)"><p style="margin:0;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(0,0,0,.5)">Équilibré</p><p style="margin:5px 0 0;font-weight:600;font-size:22px;letter-spacing:-.03em;color:#1e9e4a">20 %</p></div>
+<div style="padding:14px 16px;border-radius:16px;background:rgba(10,132,255,.13)"><p style="margin:0;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(0,0,0,.5)">Ambitieux</p><p style="margin:5px 0 0;font-weight:600;font-size:22px;letter-spacing:-.03em;color:#0a6ed1">30 %</p></div>
+</div>
+</div>
+</div>
+</section>
+
+<section style="max-width:1200px;margin:0 auto;padding:0 clamp(18px,4.2vw,28px)">
+<div data-reveal="" style="padding:44px 0" data-card="">
+<p style="font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(0,0,0,.38);margin:0 0 14px">La formule</p>
+<p style="font-size:clamp(13px,1.55vw,23px);line-height:1.2;letter-spacing:-.02em;font-weight:500;margin:0;white-space:nowrap;color:rgba(0,0,0,.8)">Salaire <span style="color:rgba(0,0,0,.28)">−</span> fixes <span style="color:rgba(0,0,0,.28)">−</span> variables <span style="color:rgba(0,0,0,.28)">−</span> épargne <span style="color:rgba(0,0,0,.28)">=</span> argent de poche.</p>
+<p style="font-size:13.5px;line-height:1.5;color:rgba(0,0,0,.5);max-width:56ch;margin:12px 0 0">C'est la seule ligne qui compte vraiment, et Mindflow Budget la garde sous les yeux du 1er au 31.</p>
+</div>
+</section>
+
+<section id="ecrans" style="max-width:1200px;margin:0 auto;padding:0 clamp(18px,4.2vw,28px)">
+<div style="padding:78px 0 0">
+<p data-reveal="" style="font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(0,0,0,.45);margin:0 0 18px">Écrans</p>
+<div data-reveal="" style="display:flex;flex-wrap:wrap;gap:26px;align-items:flex-end;justify-content:space-between;margin-bottom:34px">
+<h2 style="font-size:clamp(28px,3.6vw,48px);line-height:1;letter-spacing:-.04em;margin:0;max-width:18ch">Regardez l'app avant de la télécharger.</h2>
+<div data-tabsrow="" style="display:flex;border:1.5px solid #0a0a0a;border-radius:999px;overflow:hidden">
+<button type="button" data-tab="0" onclick="setTab(0)" style="appearance:none;border:0;cursor:pointer;font-family:inherit;font-size:13px;font-weight:600;padding:10px 20px;background:#0a0a0a;color:#fff">Accueil</button>
+<button type="button" data-tab="1" onclick="setTab(1)" style="appearance:none;border:0;border-left:1px solid rgba(0,0,0,.16);cursor:pointer;font-family:inherit;font-size:13px;font-weight:600;padding:10px 20px;background:transparent;color:#0a0a0a">Dépenses</button>
+<button type="button" data-tab="2" onclick="setTab(2)" style="appearance:none;border:0;border-left:1px solid rgba(0,0,0,.16);cursor:pointer;font-family:inherit;font-size:13px;font-weight:600;padding:10px 20px;background:transparent;color:#0a0a0a">Épargne</button>
+<button type="button" data-tab="3" onclick="setTab(3)" style="appearance:none;border:0;border-left:1px solid rgba(0,0,0,.16);cursor:pointer;font-family:inherit;font-size:13px;font-weight:600;padding:10px 20px;background:transparent;color:#0a0a0a">Réglages</button>
+</div>
+</div>
+</div>
+<div data-reveal="" data-g="" style="display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:52px;align-items:center;padding:8px 0 78px">
+<div style="position:relative;width:100%;padding:8px;border-radius:50px;background:linear-gradient(158deg,#b9b9b9 0%,#2b2b2b 9%,#0d0d0d 34%,#000 52%,#141414 70%,#2e2e2e 88%,#c2c2c2 100%);box-shadow:0 26px 60px rgba(0,0,0,.12),inset 0 0 0 1.4px rgba(255,255,255,.30),inset 0 0 0 3px rgba(0,0,0,.9)">
+<span style="position:absolute;right:-3px;top:29%;height:8.5%;width:3px;background:linear-gradient(90deg,#111,#8f8f8f);border-radius:0 3px 3px 0"></span><span style="position:absolute;left:-3px;top:17.5%;height:3.4%;width:3px;background:linear-gradient(270deg,#111,#8f8f8f);border-radius:3px 0 0 3px"></span><span style="position:absolute;left:-3px;top:24%;height:6%;width:3px;background:linear-gradient(270deg,#111,#8f8f8f);border-radius:3px 0 0 3px"></span><span style="position:absolute;left:-3px;top:32%;height:6%;width:3px;background:linear-gradient(270deg,#111,#8f8f8f);border-radius:3px 0 0 3px"></span><div style="position:relative;overflow:hidden;border-radius:42px;background:#000">
+<img id="tabImg" src="assets/screens/accueil.jpg" alt="Aperçu de l’application Mindflow Budget" style="width:100%;display:block">
+<span style="position:absolute;top:1.9%;left:50%;transform:translateX(-50%);width:30%;aspect-ratio:3.4;background:#000;border-radius:999px;z-index:2;box-shadow:0 0 0 .5px rgba(255,255,255,.14)"></span>
+</div>
+</div>
+<div>
+<h3 style="font-size:clamp(21px,2.2vw,30px);line-height:1.06;letter-spacing:-.035em;margin:0 0 14px" id="tabTitle">Accueil : la photo du mois</h3>
+<p style="font-size:14px;line-height:1.55;color:rgba(0,0,0,.6);max-width:44ch;margin:0" id="tabBody">Salaire du mois, dépenses, épargne et restant : trois jauges et une barre de budget utilisé, visibles dès l’ouverture.</p>
+</div>
+</div>
+
+<div style="padding-bottom:78px" data-card="">
+<div data-rail="" style="display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:30px;scrollbar-width:thin;scrollbar-color:rgba(0,0,0,.22) transparent">
+<figure style="flex:none;width:232px;scroll-snap-align:start;margin:0"><div style="border-radius:22px;background:linear-gradient(180deg,#f6f6f7,#e8e8ea);padding:18px"><div style="position:relative;width:88%;margin:0 auto;padding:4px;border-radius:28px;background:linear-gradient(158deg,#b9b9b9 0%,#2b2b2b 9%,#0d0d0d 34%,#000 52%,#141414 70%,#2e2e2e 88%,#c2c2c2 100%);box-shadow:0 8px 20px rgba(0,0,0,.16),inset 0 0 0 1px rgba(255,255,255,.26)"><span style="position:absolute;right:-2px;top:29%;height:8.5%;width:2px;background:linear-gradient(90deg,#111,#8f8f8f);border-radius:0 3px 3px 0"></span><span style="position:absolute;left:-2px;top:17.5%;height:3.4%;width:2px;background:linear-gradient(270deg,#111,#8f8f8f);border-radius:3px 0 0 3px"></span><span style="position:absolute;left:-2px;top:24%;height:6%;width:2px;background:linear-gradient(270deg,#111,#8f8f8f);border-radius:3px 0 0 3px"></span><span style="position:absolute;left:-2px;top:32%;height:6%;width:2px;background:linear-gradient(270deg,#111,#8f8f8f);border-radius:3px 0 0 3px"></span><div style="position:relative;overflow:hidden;border-radius:24px;background:#000"><img src="assets/screens/categories.jpg" alt="Répartition par catégorie" style="width:100%;display:block"><span style="position:absolute;top:2%;left:50%;transform:translateX(-50%);width:32%;aspect-ratio:3.4;background:#000;border-radius:999px;z-index:2"></span></div></div></div><figcaption style="font-size:13px;letter-spacing:-.01em;color:rgba(0,0,0,.55);margin-top:12px">Par catégorie</figcaption></figure>
+<figure style="flex:none;width:232px;scroll-snap-align:start;margin:0"><div style="border-radius:22px;background:linear-gradient(180deg,#f6f6f7,#e8e8ea);padding:18px"><div style="position:relative;width:88%;margin:0 auto;padding:4px;border-radius:28px;background:linear-gradient(158deg,#b9b9b9 0%,#2b2b2b 9%,#0d0d0d 34%,#000 52%,#141414 70%,#2e2e2e 88%,#c2c2c2 100%);box-shadow:0 8px 20px rgba(0,0,0,.16),inset 0 0 0 1px rgba(255,255,255,.26)"><span style="position:absolute;right:-2px;top:29%;height:8.5%;width:2px;background:linear-gradient(90deg,#111,#8f8f8f);border-radius:0 3px 3px 0"></span><span style="position:absolute;left:-2px;top:17.5%;height:3.4%;width:2px;background:linear-gradient(270deg,#111,#8f8f8f);border-radius:3px 0 0 3px"></span><span style="position:absolute;left:-2px;top:24%;height:6%;width:2px;background:linear-gradient(270deg,#111,#8f8f8f);border-radius:3px 0 0 3px"></span><span style="position:absolute;left:-2px;top:32%;height:6%;width:2px;background:linear-gradient(270deg,#111,#8f8f8f);border-radius:3px 0 0 3px"></span><div style="position:relative;overflow:hidden;border-radius:24px;background:#000"><img src="assets/screens/decomposition.jpg" alt="Décomposition du salaire" style="width:100%;display:block"><span style="position:absolute;top:2%;left:50%;transform:translateX(-50%);width:32%;aspect-ratio:3.4;background:#000;border-radius:999px;z-index:2"></span></div></div></div><figcaption style="font-size:13px;letter-spacing:-.01em;color:rgba(0,0,0,.55);margin-top:12px">Décomposition</figcaption></figure>
+<figure style="flex:none;width:232px;scroll-snap-align:start;margin:0"><div style="border-radius:22px;background:linear-gradient(180deg,#f6f6f7,#e8e8ea);padding:18px"><div style="position:relative;width:88%;margin:0 auto;padding:4px;border-radius:28px;background:linear-gradient(158deg,#b9b9b9 0%,#2b2b2b 9%,#0d0d0d 34%,#000 52%,#141414 70%,#2e2e2e 88%,#c2c2c2 100%);box-shadow:0 8px 20px rgba(0,0,0,.16),inset 0 0 0 1px rgba(255,255,255,.26)"><span style="position:absolute;right:-2px;top:29%;height:8.5%;width:2px;background:linear-gradient(90deg,#111,#8f8f8f);border-radius:0 3px 3px 0"></span><span style="position:absolute;left:-2px;top:17.5%;height:3.4%;width:2px;background:linear-gradient(270deg,#111,#8f8f8f);border-radius:3px 0 0 3px"></span><span style="position:absolute;left:-2px;top:24%;height:6%;width:2px;background:linear-gradient(270deg,#111,#8f8f8f);border-radius:3px 0 0 3px"></span><span style="position:absolute;left:-2px;top:32%;height:6%;width:2px;background:linear-gradient(270deg,#111,#8f8f8f);border-radius:3px 0 0 3px"></span><div style="position:relative;overflow:hidden;border-radius:24px;background:#000"><img src="assets/screens/objectif.jpg" alt="Objectif d'épargne" style="width:100%;display:block"><span style="position:absolute;top:2%;left:50%;transform:translateX(-50%);width:32%;aspect-ratio:3.4;background:#000;border-radius:999px;z-index:2"></span></div></div></div><figcaption style="font-size:13px;letter-spacing:-.01em;color:rgba(0,0,0,.55);margin-top:12px">Objectif</figcaption></figure>
+<figure style="flex:none;width:232px;scroll-snap-align:start;margin:0"><div style="border-radius:22px;background:linear-gradient(180deg,#f6f6f7,#e8e8ea);padding:18px"><div style="position:relative;width:88%;margin:0 auto;padding:4px;border-radius:28px;background:linear-gradient(158deg,#b9b9b9 0%,#2b2b2b 9%,#0d0d0d 34%,#000 52%,#141414 70%,#2e2e2e 88%,#c2c2c2 100%);box-shadow:0 8px 20px rgba(0,0,0,.16),inset 0 0 0 1px rgba(255,255,255,.26)"><span style="position:absolute;right:-2px;top:29%;height:8.5%;width:2px;background:linear-gradient(90deg,#111,#8f8f8f);border-radius:0 3px 3px 0"></span><span style="position:absolute;left:-2px;top:17.5%;height:3.4%;width:2px;background:linear-gradient(270deg,#111,#8f8f8f);border-radius:3px 0 0 3px"></span><span style="position:absolute;left:-2px;top:24%;height:6%;width:2px;background:linear-gradient(270deg,#111,#8f8f8f);border-radius:3px 0 0 3px"></span><span style="position:absolute;left:-2px;top:32%;height:6%;width:2px;background:linear-gradient(270deg,#111,#8f8f8f);border-radius:3px 0 0 3px"></span><div style="position:relative;overflow:hidden;border-radius:24px;background:#000"><img src="assets/screens/profil.jpg" alt="Profil utilisateur" style="width:100%;display:block"><span style="position:absolute;top:2%;left:50%;transform:translateX(-50%);width:32%;aspect-ratio:3.4;background:#000;border-radius:999px;z-index:2"></span></div></div></div><figcaption style="font-size:13px;letter-spacing:-.01em;color:rgba(0,0,0,.55);margin-top:12px">Profil</figcaption></figure>
+<figure style="flex:none;width:232px;scroll-snap-align:start;margin:0"><div style="border-radius:22px;background:linear-gradient(180deg,#f6f6f7,#e8e8ea);padding:18px"><div style="position:relative;width:88%;margin:0 auto;padding:4px;border-radius:28px;background:linear-gradient(158deg,#b9b9b9 0%,#2b2b2b 9%,#0d0d0d 34%,#000 52%,#141414 70%,#2e2e2e 88%,#c2c2c2 100%);box-shadow:0 8px 20px rgba(0,0,0,.16),inset 0 0 0 1px rgba(255,255,255,.26)"><span style="position:absolute;right:-2px;top:29%;height:8.5%;width:2px;background:linear-gradient(90deg,#111,#8f8f8f);border-radius:0 3px 3px 0"></span><span style="position:absolute;left:-2px;top:17.5%;height:3.4%;width:2px;background:linear-gradient(270deg,#111,#8f8f8f);border-radius:3px 0 0 3px"></span><span style="position:absolute;left:-2px;top:24%;height:6%;width:2px;background:linear-gradient(270deg,#111,#8f8f8f);border-radius:3px 0 0 3px"></span><span style="position:absolute;left:-2px;top:32%;height:6%;width:2px;background:linear-gradient(270deg,#111,#8f8f8f);border-radius:3px 0 0 3px"></span><div style="position:relative;overflow:hidden;border-radius:24px;background:#000"><img src="assets/screens/reglages.jpg" alt="Réglages et thèmes" style="width:100%;display:block"><span style="position:absolute;top:2%;left:50%;transform:translateX(-50%);width:32%;aspect-ratio:3.4;background:#000;border-radius:999px;z-index:2"></span></div></div></div><figcaption style="font-size:13px;letter-spacing:-.01em;color:rgba(0,0,0,.55);margin-top:12px">Thèmes</figcaption></figure>
+<figure style="flex:none;width:232px;scroll-snap-align:start;margin:0"><div style="border-radius:22px;background:linear-gradient(180deg,#f6f6f7,#e8e8ea);padding:18px"><div style="position:relative;width:88%;margin:0 auto;padding:4px;border-radius:28px;background:linear-gradient(158deg,#b9b9b9 0%,#2b2b2b 9%,#0d0d0d 34%,#000 52%,#141414 70%,#2e2e2e 88%,#c2c2c2 100%);box-shadow:0 8px 20px rgba(0,0,0,.16),inset 0 0 0 1px rgba(255,255,255,.26)"><span style="position:absolute;right:-2px;top:29%;height:8.5%;width:2px;background:linear-gradient(90deg,#111,#8f8f8f);border-radius:0 3px 3px 0"></span><span style="position:absolute;left:-2px;top:17.5%;height:3.4%;width:2px;background:linear-gradient(270deg,#111,#8f8f8f);border-radius:3px 0 0 3px"></span><span style="position:absolute;left:-2px;top:24%;height:6%;width:2px;background:linear-gradient(270deg,#111,#8f8f8f);border-radius:3px 0 0 3px"></span><span style="position:absolute;left:-2px;top:32%;height:6%;width:2px;background:linear-gradient(270deg,#111,#8f8f8f);border-radius:3px 0 0 3px"></span><div style="position:relative;overflow:hidden;border-radius:24px;background:#000"><img src="assets/screens/sauvegarde.jpg" alt="Sauvegarde et restauration" style="width:100%;display:block"><span style="position:absolute;top:2%;left:50%;transform:translateX(-50%);width:32%;aspect-ratio:3.4;background:#000;border-radius:999px;z-index:2"></span></div></div></div><figcaption style="font-size:13px;letter-spacing:-.01em;color:rgba(0,0,0,.55);margin-top:12px">Sauvegarde</figcaption></figure>
+</div>
+
+</div>
+</section>
+
+<section id="confidentialite" style="max-width:1200px;margin:0 auto;padding:0 clamp(18px,4.2vw,28px)">
+<div data-reveal="" data-g="" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;padding:78px 0" data-card="">
+<div>
+<p style="font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(0,0,0,.45);margin:0 0 18px">Confidentialité</p>
+<h2 style="font-size:clamp(27px,3.4vw,44px);line-height:1;letter-spacing:-.04em;margin:0 0 18px">Vos chiffres restent sur votre téléphone.</h2>
+<p style="font-size:14px;line-height:1.55;color:rgba(0,0,0,.6);max-width:44ch;margin:0">Mindflow Budget fonctionne hors ligne. Aucun serveur ne reçoit vos montants : ils sont stockés localement, et vous choisissez si vous les sauvegardez sur iCloud ou Google Drive.</p>
+</div>
+<div style="display:grid;align-content:start;border-top:1px solid rgba(0,0,0,.16)">
+<div style="padding:18px 0;border-bottom:1px solid rgba(0,0,0,.16);display:flex;gap:18px;align-items:baseline"><span style="font-size:11px;color:rgba(0,0,0,.4);min-width:22px">01</span><div><p style="margin:0;font-weight:600;font-size:16px">Stockage 100 % local</p><p style="margin:4px 0 0;font-size:14px;color:rgba(0,0,0,.55)">Rien ne part sans votre action.</p></div></div>
+<div style="padding:18px 0;border-bottom:1px solid rgba(0,0,0,.16);display:flex;gap:18px;align-items:baseline"><span style="font-size:11px;color:rgba(0,0,0,.4);min-width:22px">02</span><div><p style="margin:0;font-weight:600;font-size:16px">Verrouillage de l'app</p><p style="margin:4px 0 0;font-size:14px;color:rgba(0,0,0,.55)">Face ID ou code, au choix.</p></div></div>
+<div style="padding:18px 0;border-bottom:1px solid rgba(0,0,0,.16);display:flex;gap:18px;align-items:baseline"><span style="font-size:11px;color:rgba(0,0,0,.4);min-width:22px">03</span><div><p style="margin:0;font-weight:600;font-size:16px">Sauvegarde à la demande</p><p style="margin:4px 0 0;font-size:14px;color:rgba(0,0,0,.55)">iCloud, Google Drive, ou rien du tout.</p></div></div>
+<div style="padding:18px 0;display:flex;gap:18px;align-items:baseline"><span style="font-size:11px;color:rgba(0,0,0,.4);min-width:22px">04</span><div><p style="margin:0;font-weight:600;font-size:16px">Remise à zéro immédiate</p><p style="margin:4px 0 0;font-size:14px;color:rgba(0,0,0,.55)">Un bouton, et tout disparaît.</p></div></div>
+</div>
+</div>
+</section>
+
+<section id="faq" style="max-width:1200px;margin:0 auto;padding:0 clamp(18px,4.2vw,28px)">
+<div data-g="" style="display:grid;grid-template-columns:minmax(0,.62fr) minmax(0,1fr);gap:56px;padding:78px 0" data-card="">
+<div data-reveal="">
+<p style="font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(0,0,0,.45);margin:0 0 18px">FAQ</p>
+<h2 style="font-size:clamp(26px,3vw,40px);line-height:1;letter-spacing:-.04em;margin:0">Questions fréquentes.</h2>
+</div>
+<div data-reveal="" style="border-top:1px solid #0a0a0a">
+<div style="border-bottom:1px solid rgba(0,0,0,.16)">
+<button type="button" onclick="faq(0)" style="width:100%;appearance:none;background:transparent;border:0;cursor:pointer;font-family:inherit;text-align:left;display:flex;gap:20px;align-items:baseline;padding:20px 0;font-size:16.5px;font-weight:600;letter-spacing:-.02em;color:#0a0a0a"><span style="min-width:14px;font-weight:400;color:rgba(0,0,0,.45)" data-sign="0">−</span>L'app est-elle gratuite ?</button>
+<p data-faq="0" style="margin:0;padding:0 0 22px 34px;font-size:14px;line-height:1.55;color:rgba(0,0,0,.6);max-width:52ch">Oui. Mindflow Budget se télécharge et s'utilise gratuitement, sans compte et sans publicité.</p>
+</div>
+<div style="border-bottom:1px solid rgba(0,0,0,.16)">
+<button type="button" onclick="faq(1)" style="width:100%;appearance:none;background:transparent;border:0;cursor:pointer;font-family:inherit;text-align:left;display:flex;gap:20px;align-items:baseline;padding:20px 0;font-size:16.5px;font-weight:600;letter-spacing:-.02em;color:#0a0a0a"><span style="min-width:14px;font-weight:400;color:rgba(0,0,0,.45)" data-sign="1">+</span>Dois-je connecter ma banque ?</button>
+<p data-faq="1" hidden style="margin:0;padding:0 0 22px 34px;font-size:14px;line-height:1.55;color:rgba(0,0,0,.6);max-width:52ch">Jamais. Vous saisissez vos revenus et vos dépenses à la main : c'est ce qui garantit qu'aucune donnée bancaire ne circule.</p>
+</div>
+<div style="border-bottom:1px solid rgba(0,0,0,.16)">
+<button type="button" onclick="faq(2)" style="width:100%;appearance:none;background:transparent;border:0;cursor:pointer;font-family:inherit;text-align:left;display:flex;gap:20px;align-items:baseline;padding:20px 0;font-size:16.5px;font-weight:600;letter-spacing:-.02em;color:#0a0a0a"><span style="min-width:14px;font-weight:400;color:rgba(0,0,0,.45)" data-sign="2">+</span>Que se passe-t-il si je change de téléphone ?</button>
+<p data-faq="2" hidden style="margin:0;padding:0 0 22px 34px;font-size:14px;line-height:1.55;color:rgba(0,0,0,.6);max-width:52ch">Sauvegardez sur iCloud ou Google Drive depuis les réglages, puis restaurez la sauvegarde sur le nouvel appareil.</p>
+</div>
+<div style="border-bottom:1px solid rgba(0,0,0,.16)">
+<button type="button" onclick="faq(3)" style="width:100%;appearance:none;background:transparent;border:0;cursor:pointer;font-family:inherit;text-align:left;display:flex;gap:20px;align-items:baseline;padding:20px 0;font-size:16.5px;font-weight:600;letter-spacing:-.02em;color:#0a0a0a"><span style="min-width:14px;font-weight:400;color:rgba(0,0,0,.45)" data-sign="3">+</span>Les dépenses fixes se répètent-elles ?</button>
+<p data-faq="3" hidden style="margin:0;padding:0 0 22px 34px;font-size:14px;line-height:1.55;color:rgba(0,0,0,.6);max-width:52ch">Oui, elles sont reportées automatiquement d'un mois sur l'autre. Vous pouvez les modifier ou les supprimer à tout moment.</p>
+</div>
+<div>
+<button type="button" onclick="faq(4)" style="width:100%;appearance:none;background:transparent;border:0;cursor:pointer;font-family:inherit;text-align:left;display:flex;gap:20px;align-items:baseline;padding:20px 0;font-size:16.5px;font-weight:600;letter-spacing:-.02em;color:#0a0a0a"><span style="min-width:14px;font-weight:400;color:rgba(0,0,0,.45)" data-sign="4">+</span>Quelles devises et langues ?</button>
+<p data-faq="4" hidden style="margin:0;padding:0 0 22px 34px;font-size:14px;line-height:1.55;color:rgba(0,0,0,.6);max-width:52ch">Français et anglais, avec le choix de la devise dans les réglages, euro par défaut.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="telecharger" style="background:#0a0a0a;color:#fff;margin-top:40px">
+<div style="max-width:1200px;margin:0 auto;padding:clamp(32px,3.6vw,42px) clamp(18px,4.2vw,28px)">
+<div data-reveal="" data-g="" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.72fr);gap:56px;align-items:end">
+<div>
+<p style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.42);margin:0 0 10px">Télécharger</p>
+<h2 style="font-size:clamp(19px,2vw,26px);line-height:1.1;letter-spacing:-.025em;margin:0 0 10px;color:#fff">Reprenez la main sur le mois qui vient.</h2>
+<p style="font-size:13px;line-height:1.5;color:rgba(255,255,255,.55);max-width:52ch;margin:0 0 18px">Gratuit, hors ligne, sans compte. Cinq minutes pour saisir votre mois, et plus jamais d'angoisse le 25.</p>
+<div style="display:flex;flex-wrap:wrap;gap:12px">
+<a href="https://apps.apple.com/fr/app/mindflow-budget/id6800087324" style="display:inline-flex;align-items:center;gap:10px;height:38px;padding:0 17px;border-radius:999px;background:#fff;color:#0a0a0a;text-decoration:none;font-size:12.5px;font-weight:600;white-space:nowrap" style-hover="background:rgba(255,255,255,.86)"><svg width="17" height="20" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 8 184.1 8 271.4c0 25.9 4.7 52.7 14.2 80.4 12.6 36.4 45.1 105.2 79.1 104.2 17.8-.4 30.3-12.6 53.4-12.6 22.4 0 34 12.2 53.9 12.2 34.2-.5 63.7-63 75.7-99.5-45.8-21.6-65.6-77.4-65.6-87.4zM262 78.3c17.2-20.9 26.3-45.2 24.6-72.3-25.8 1.6-49.3 13.9-66.9 33.9-15.7 17.9-25.1 43-23.4 68.1 28.1 2.2 53.2-11.4 65.7-29.7z"></path></svg>App Store</a>
+<a href="https://play.google.com/store/search?q=Mindflow%20Budget&amp;c=apps" style="display:inline-flex;align-items:center;gap:10px;height:38px;padding:0 17px;border-radius:999px;border:1px solid rgba(255,255,255,.38);color:#fff;text-decoration:none;font-size:12.5px;font-weight:600;white-space:nowrap" style-hover="background:rgba(255,255,255,.12)"><svg width="17" height="19" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M325.3 234.3 104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6-58.9-34.1-65.7 65.5 65.7 65.5 60.1-34.1c18-14.3 18-46.5-1.2-62.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"></path></svg>Google Play</a>
+</div>
+</div>
+<div data-ctamark="" style="display:flex;justify-content:flex-end">
+<img src="assets/icon.png" alt="Mindflow Budget" style="width:clamp(68px,7.5vw,92px);aspect-ratio:1;border-radius:22%;display:block;box-shadow:0 0 0 1px rgba(255,255,255,.28)">
+</div>
+</div>
+</div>
+</section>
+
+<footer style="max-width:1200px;margin:0 auto;padding:0 clamp(18px,4.2vw,28px)">
+<div style="display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:center;padding:34px 0">
+<div style="display:flex;align-items:center;gap:10px">
+<img src="assets/icon.png" alt="" style="width:24px;height:24px;border-radius:7px;display:block">
+<span style="font-size:13.5px;font-weight:600">Mindflow Budget</span>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:24px;font-size:13px">
+<a href="confidentialite.html" style="text-decoration:none;opacity:.6">Confidentialité</a>
+<a href="conditions.html" style="text-decoration:none;opacity:.6">Conditions</a>
+<a href="support.html" style="text-decoration:none;opacity:.6">Support</a>
+<a href="mailto:Support.mindflowapp@gmail.com" style="text-decoration:none;opacity:.6">Support.mindflowapp@gmail.com</a>
+</div>
+</div>
+<p style="font-size:12px;color:rgba(0,0,0,.42);padding:18px 0 40px;margin:0">© 2026 Mindflow Budget. Conçu et développé en France.</p>
+</footer>
+
+</div>
+<script>
+(function(){
+var TABS=[
+ {img:'assets/screens/accueil.jpg',alt:"Écran d'accueil",title:'Accueil : la photo du mois',body:"Salaire du mois, dépenses, épargne et restant : trois jauges et une barre de budget utilisé, visibles dès l'ouverture."},
+ {img:'assets/screens/fixes.jpg',alt:'Dépenses fixes',title:'Dépenses : fixes et variables',body:"Les charges récurrentes en haut, les dépenses du mois en dessous, chacune avec sa catégorie et son montant modifiable."},
+ {img:'assets/screens/decomposition.jpg',alt:"Décomposition de l'épargne",title:'Épargne : la décomposition',body:"Du salaire à l'argent de poche, ligne par ligne, avec un curseur pour ajuster l'épargne du mois en direct."},
+ {img:'assets/screens/reglages.jpg',alt:'Réglages',title:'Réglages : thème, langue, devise',body:"Quatre apparences, cinq fonds d'écran, la langue, la devise, le verrouillage et la sauvegarde cloud."}
+];
+window.setTab=function(i){var t=TABS[i];if(!t)return;
+ var img=document.getElementById('tabImg');img.src=t.img;img.alt=t.alt;
+ document.getElementById('tabTitle').textContent=t.title;
+ document.getElementById('tabBody').textContent=t.body;
+ document.querySelectorAll('[data-tab]').forEach(function(b){var on=+b.dataset.tab===i;b.style.background=on?'#0a0a0a':'transparent';b.style.color=on?'#fff':'#0a0a0a';});
+};
+var open=0;
+window.faq=function(i){open=(open===i)?-1:i;
+ document.querySelectorAll('[data-faq]').forEach(function(p){p.hidden=(+p.dataset.faq!==open);});
+ document.querySelectorAll('[data-sign]').forEach(function(s){s.textContent=(+s.dataset.sign===open)?'−':'+';});
+};
+var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var targets=[].slice.call(document.querySelectorAll('[data-reveal]'));
+function show(el){el.style.opacity='1';el.style.transform='none';}
+if(!reduce&&targets.length){
+ targets.forEach(function(el){el.style.opacity='0';el.style.transform='translateY(26px)';el.style.transition='opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)';});
+ var sweep=function(){var vh=innerHeight||800;targets.forEach(function(el){if(el.style.opacity==='0'&&el.getBoundingClientRect().top<vh*0.94)show(el);});};
+ requestAnimationFrame(sweep);addEventListener('scroll',sweep,{passive:true});addEventListener('resize',sweep);
+ setTimeout(function(){targets.forEach(show);},2500);
+ if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){show(e.target);io.unobserve(e.target);}});},{rootMargin:'0px 0px -6% 0px',threshold:.05});targets.forEach(function(el){io.observe(el);});}
+}
+var par=[].slice.call(document.querySelectorAll('[data-parallax]'));
+if(!reduce&&par.length&&innerWidth>760){var raf=null;var onScroll=function(){if(raf)return;raf=requestAnimationFrame(function(){raf=null;var vh=innerHeight;par.forEach(function(el){var r=el.getBoundingClientRect(),k=parseFloat(el.getAttribute('data-parallax'))||0;el.style.transform='translate3d(0,'+(-((r.top+r.height/2-vh/2)*k)).toFixed(1)+'px,0)';});});};addEventListener('scroll',onScroll,{passive:true});onScroll();}
+})();</script>
 </body>
 </html>
