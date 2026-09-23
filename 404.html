@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Page introuvable — Mindflow Budget</title>
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#ececee">
+<meta name="theme-color" content="#f3f7fc">
 <link rel="icon" href="assets/icon.png">
 <link rel="icon" sizes="32x32" href="assets/favicon-32.png">
 <link rel="icon" sizes="16x16" href="assets/favicon-16.png">
@@ -15,6 +15,162 @@ html{scroll-behavior:smooth}
 body{margin:0;background:#ececee;color:#0a0a0a;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;letter-spacing:-.01em;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;box-sizing:border-box}
 a{color:#0a0a0a}
 :focus-visible{outline:1.5px solid #0a0a0a;outline-offset:3px}
+</style>
+<style id="mf-vivid">
+/* === Mindflow — thème "Lagon vif" + adaptation mobile (sept. 2026) === */
+:root{
+--ink:#0b1530;--ink2:#3a4560;--muted:#56607a;
+--blue:#0a6cff;--violet:#7a4dff;--teal:#00b8b0;--teal-d:#067a80;--coral:#ff5a4e;--sun:#f5a300;--green:#16b364;
+--grad:linear-gradient(120deg,#0a6cff 0%,#5b5cff 55%,#8a3dff 100%);
+--grad-lagon:linear-gradient(120deg,#0a6cff 0%,#00b8b0 100%);
+}
+body{background:#f3f7fc;color:var(--ink)}
+body::before{content:"";position:absolute;inset:0 0 auto 0;height:1100px;z-index:-1;pointer-events:none;
+background:radial-gradient(520px 420px at 8% 8%,rgba(0,184,176,.28),transparent 70%),radial-gradient(560px 460px at 92% 4%,rgba(122,77,255,.22),transparent 70%),radial-gradient(640px 520px at 70% 60%,rgba(10,108,255,.18),transparent 70%)}
+a{color:var(--ink)}
+a:hover{color:var(--blue)}
+::selection{background:var(--blue);color:#fff}
+:focus-visible{outline:2px solid var(--blue)}
+h1,h2,h3{color:var(--ink)}
+/* textes secondaires : plus contrastés, moins "gris délavé" */
+[style*="color:rgba(0,0,0,.6)"],[style*="color:rgba(0,0,0,.58)"],[style*="color:rgba(0,0,0,.62)"],[style*="color:rgba(0,0,0,.68)"]{color:var(--muted) !important}
+[style*="color:rgba(0,0,0,.72)"],[style*="color:rgba(0,0,0,.8)"]{color:var(--ink2) !important}
+/* sur-titres en couleur */
+p[style*="text-transform:uppercase"],span[style*="text-transform:uppercase"]{color:var(--teal-d) !important;font-weight:600}
+/* header */
+header{background:rgba(255,255,255,.72) !important;border-bottom:1px solid rgba(10,108,255,.12) !important}
+header a[href*="telecharger"],a#f-send{background:var(--grad) !important;color:#fff !important;box-shadow:0 6px 18px rgba(91,92,255,.35)}
+header a[href*="telecharger"]:hover,a#f-send:hover{text-decoration:none;filter:brightness(1.08)}
+[data-navlinks] a{opacity:1 !important;color:var(--ink2)}
+[data-navlinks] span{color:var(--blue)}
+/* hero */
+#top h1 .mf-grad{background:var(--grad-lagon);-webkit-background-clip:text;background-clip:text;color:transparent}
+[data-badge]{border-color:rgba(10,108,255,.35) !important;background:rgba(255,255,255,.7);color:var(--ink2)}
+[data-badge]>span{background:var(--green) !important;box-shadow:0 0 0 4px rgba(22,179,100,.18);width:7px !important;height:7px !important}
+a[href*="apps.apple.com"]:not(#telecharger a){background:var(--grad) !important;color:#fff !important;box-shadow:0 10px 26px rgba(91,92,255,.35)}
+a[href*="play.google.com"]:not(#telecharger a){border-color:var(--blue) !important;color:var(--blue) !important;background:rgba(255,255,255,.75)}
+a[href*="apps.apple.com"]:hover,a[href*="play.google.com"]:hover{text-decoration:none;filter:brightness(1.06)}
+[data-parallax]{box-shadow:0 30px 70px rgba(10,60,160,.22),inset 0 0 0 1.4px rgba(255,255,255,.30),inset 0 0 0 3px rgba(0,0,0,.9) !important}
+/* bandeau défilant */
+[data-marquee]{color:var(--ink2) !important}
+section div[style*="border:2px solid #0a0a0a"]{border:0 !important;background:var(--grad-lagon) !important;padding:2px;box-shadow:0 10px 26px rgba(10,108,255,.2) !important}
+section div[style*="border:2px solid #0a0a0a"]>div{background:#fff;border-radius:999px}
+[data-marquee] span:nth-child(even){color:var(--teal)}
+/* 3 promesses */
+[data-g3]>div{position:relative}
+[data-g3]>div h3::before{content:"";display:block;width:34px;height:6px;border-radius:9px;margin-bottom:14px;background:var(--c,var(--blue))}
+[data-g3]>div:nth-child(1){--c:var(--teal)}[data-g3]>div:nth-child(2){--c:var(--blue)}[data-g3]>div:nth-child(3){--c:var(--violet)}
+/* fonctions : chaque bloc a sa couleur */
+#fonctions>div:nth-child(2){--acc:#0a6cff;--tint:rgba(10,108,255,.10)}
+#fonctions>div:nth-child(3){--acc:#e5483d;--tint:rgba(255,90,78,.10)}
+#fonctions>div:nth-child(4){--acc:#7a4dff;--tint:rgba(122,77,255,.10)}
+#fonctions>div:nth-child(5){--acc:#0c9a56;--tint:rgba(22,179,100,.11)}
+#fonctions>[data-g] p[style*="uppercase"]{color:var(--acc) !important}
+#fonctions>[data-g] li{border-top-color:var(--tint) !important}
+#fonctions>[data-g] li>span{color:var(--acc) !important;font-weight:700}
+#fonctions>[data-g]{background:linear-gradient(180deg,var(--tint),rgba(255,255,255,.55));border-radius:32px;margin-bottom:22px;padding-left:clamp(20px,4vw,56px) !important;padding-right:clamp(20px,4vw,56px) !important;border:1px solid rgba(255,255,255,.9)}
+/* formule */
+section [data-card] p[style*="nowrap"] span{color:var(--blue) !important;font-weight:700}
+/* onglets écrans */
+[data-tabsrow]{border-color:var(--blue) !important;background:rgba(255,255,255,.7)}
+[data-tabsrow] button{color:var(--ink)}
+[data-rail] figure:nth-child(6n+1)>div{background:linear-gradient(160deg,#d9ecff,#b9d8ff) !important}
+[data-rail] figure:nth-child(6n+2)>div{background:linear-gradient(160deg,#d6f7f3,#a8ebe4) !important}
+[data-rail] figure:nth-child(6n+3)>div{background:linear-gradient(160deg,#e8e0ff,#cfc0ff) !important}
+[data-rail] figure:nth-child(6n+4)>div{background:linear-gradient(160deg,#ffe3df,#ffc4bd) !important}
+[data-rail] figure:nth-child(6n+5)>div{background:linear-gradient(160deg,#fff0cc,#ffdf94) !important}
+[data-rail] figure:nth-child(6n+6)>div{background:linear-gradient(160deg,#d8f5e4,#a9e7c4) !important}
+[data-rail]::-webkit-scrollbar-thumb{background:var(--blue)}
+/* confidentialité & FAQ */
+#confidentialite span[style*="min-width:22px"]{color:var(--teal-d) !important;font-weight:700;font-size:13px !important}
+#faq [data-reveal][style*="border-top"]{border-top:2px solid var(--blue) !important}
+#faq [data-sign]{color:var(--blue) !important;font-weight:700 !important}
+[data-toc]{border-top:2px solid var(--blue) !important}
+[data-toc] a{opacity:1 !important;color:var(--ink2)}
+input,textarea{border-color:rgba(10,108,255,.45) !important}
+input:focus,textarea:focus{outline:none;border-color:var(--blue) !important;box-shadow:0 0 0 4px rgba(10,108,255,.15)}
+/* bloc télécharger */
+#telecharger{background:linear-gradient(125deg,#0a1f5c 0%,#0a4fd6 50%,#0a8f9c 100%) !important;position:relative;overflow:hidden}
+#telecharger::after{content:"";position:absolute;right:-120px;top:-120px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(0,220,210,.45),transparent 70%);pointer-events:none}
+#telecharger p[style*="uppercase"]{color:#8ff5ec !important}
+#telecharger p{color:rgba(255,255,255,.82) !important}
+#telecharger a[href*="apps.apple.com"]{background:#fff !important;color:var(--ink) !important}
+#telecharger a[href*="play.google.com"]{border-color:rgba(255,255,255,.6) !important;color:#fff !important}
+footer a{opacity:1 !important;color:var(--ink2)}
+div[style*="border-top:1px solid #0a0a0a"]{border-top:2px solid var(--blue) !important}
+
+/* ================= MOBILE ================= */
+@media(max-width:700px){
+body::before{height:900px}
+[data-nav]{gap:10px !important}
+[data-navlinks]{gap:6px !important;font-size:14px !important;padding:4px 0 2px !important;-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent);mask-image:linear-gradient(90deg,#000 88%,transparent)}
+[data-navlinks]>*{padding:8px 12px;border-radius:999px;background:rgba(10,108,255,.07)}
+[data-navlinks]>a:hover{text-decoration:none}
+header a[href*="telecharger"]{height:38px !important;padding:0 18px !important;font-size:14px !important}
+/* typo plus grande et lisible */
+p[style*="font-size:14px"],p[style*="font-size:13.5px"],p[style*="font-size:13px"]{font-size:16px !important;line-height:1.6 !important}
+ul[style*="font-size:14.5px"]{font-size:16px !important;gap:12px !important}
+p[style*="text-transform:uppercase"],span[style*="text-transform:uppercase"]{font-size:12.5px !important}
+p[style*="font-size:12.5px"]{font-size:14px !important;line-height:1.5}
+#top h1{font-size:46px !important;line-height:.98 !important}
+#top p[style*="font-size:17px"]{font-size:17.5px !important}
+h2{font-size:32px !important;line-height:1.05 !important}
+#fonctions h3{font-size:27px !important;line-height:1.08 !important}
+[data-g3] h3{font-size:22px !important}
+/* hero */
+#top [data-card]{padding-top:36px !important}
+#top [data-hero-copy]{padding-bottom:10px !important}
+#top [data-reveal] a[href*="apps.apple"],#top [data-reveal] a[href*="play.google"]{flex:1 1 150px;justify-content:center;height:54px !important;padding:0 18px !important}
+#top [data-parallax]{width:min(268px,74%) !important;margin-bottom:10px !important}
+/* moins de vide vertical */
+section>div[style*="padding:80px 0 44px"],section>div[style*="padding:78px 0 0"]{padding:52px 0 22px !important}
+section[style*="padding:34px"]{padding-top:18px !important;padding-bottom:10px !important}
+[data-card]{padding-top:34px !important;padding-bottom:34px !important}
+/* 3 promesses en cartes */
+[data-g3]{gap:12px !important;padding-top:20px !important}
+[data-g3]>div{background:rgba(255,255,255,.8);border:1px solid rgba(10,108,255,.1) !important;border-radius:22px;padding:22px 20px !important}
+[data-g3]>div:last-child{border-bottom:1px solid rgba(10,108,255,.1) !important}
+/* blocs fonctions */
+#fonctions>[data-g]{gap:26px !important;padding:30px 20px !important;border-radius:26px;margin-bottom:16px}
+#fonctions>[data-g]>div:not([data-phones])>div[style*="justify-content:center"],#fonctions>[data-g]>div[style*="justify-content:center"]:not([data-phones]){justify-content:center}
+#fonctions [data-parallax="0.04"]{width:min(250px,78%) !important}
+/* paires de téléphones : défilement horizontal, écrans plus grands */
+[data-phones]{order:0 !important;justify-content:flex-start !important;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px !important;padding:6px 4px 14px;margin:0 -20px;padding-left:20px !important;padding-right:20px !important;scrollbar-width:none}
+[data-phones]::-webkit-scrollbar{display:none}
+[data-phones]>div{flex:none;width:62% !important;margin-top:0 !important;scroll-snap-align:center}
+/* pastilles épargne */
+#fonctions div[style*="repeat(3,1fr)"]{gap:8px !important}
+#fonctions div[style*="repeat(3,1fr)"]>div{padding:12px 10px !important}
+#fonctions div[style*="repeat(3,1fr)"] p:last-child{font-size:21px !important}
+#fonctions div[style*="repeat(3,1fr)"] p:first-child{font-size:10px !important;letter-spacing:.08em !important}
+/* formule : sur plusieurs lignes, lisible */
+p[style*="white-space:nowrap"]{white-space:normal !important;font-size:22px !important;line-height:1.3 !important}
+/* écrans */
+[data-tabsrow]{display:grid !important;grid-template-columns:repeat(4,1fr);overflow:hidden !important}
+[data-tabsrow] button{padding:12px 4px !important;font-size:13px !important;min-height:46px}
+#ecrans [data-g]>div:first-child{width:min(268px,76%) !important;margin:0 auto}
+#ecrans [data-g]{padding-bottom:40px !important;text-align:center}
+#ecrans [data-g] #tabBody{margin:0 auto !important}
+[data-rail] figure{width:200px !important}
+#ecrans [data-card]{padding-bottom:40px !important}
+/* confidentialité, FAQ */
+#confidentialite [data-g]>div:last-child>div{padding:16px 0 !important}
+#faq button{padding:18px 0 !important;font-size:17px !important}
+#faq p[data-faq]{padding-left:34px !important}
+/* bloc télécharger */
+#telecharger h2{font-size:28px !important}
+#telecharger a{flex:1 1 140px;justify-content:center;height:50px !important;font-size:15px !important}
+[data-ctamark]{display:none !important}
+#telecharger>div{padding-top:44px !important;padding-bottom:48px !important}
+/* footer : vraies zones tactiles */
+footer div[style*="gap:24px;font-size:13px"]{gap:4px 20px !important;font-size:15px !important}
+footer div[style*="gap:24px;font-size:13px"] a{padding:8px 0}
+/* pages secondaires */
+[data-subj]{padding:11px 18px !important;font-size:14px !important}
+input,textarea{font-size:16px !important}
+[data-toc]{font-size:15px !important;gap:12px !important}
+}
+@media(prefers-reduced-motion:reduce){[data-phones]{scroll-behavior:auto}}
 </style>
 </head>
 <body>
